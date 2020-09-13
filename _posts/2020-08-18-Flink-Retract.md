@@ -59,6 +59,8 @@ AccRetract  累积和撤回：
 
 ## 修正方式的成本
 Discarding < AccMode < AccRetractMode
+
+
 不缓存历史数据 (窗口 无早期和Late record) < history state 进行累积更新< history state ,保存上一次结果,发两个数据 导致网络流量增加 
 
 # Retract优化规则
@@ -67,7 +69,9 @@ Retract优化规则, 如果earliy late,情况下 如何选择AccMode,AccRetractM
 
 Discarding（抛弃）：每个窗口产生输出之后，其state都被丢弃。也就是各个窗口之间完全独立。比较适合下游是聚合类的运算，比如对整数求和。
 
+
 Accumulating（累积）：所有窗口的历史状态都会被保存，每次late event到了之后，都会触发重新计算，更新之前计算结果。这种方式适合下游是可更新的数据存储，比如HBase/带主键的RDS table等。
+
 
 Accumulating & Retracting（累积&撤回）：Accumulating与第二点一样，即保存窗口的所有历史状态。撤回是指，late event到来之后，出了触发重新计算之外，还会把之前窗口的输出撤回。以下两个case非常适合用这种方式：
 
