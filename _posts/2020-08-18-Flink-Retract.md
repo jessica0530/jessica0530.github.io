@@ -9,7 +9,7 @@ keywords: flink
 对无边界，无序的数据源，允许按数据本身的特征进行窗口计算，得到基于事件发生时间的有序结果，并能在准确性、延迟程度和处理成本之间调整。
 流计算的本质，就是平衡正确性，延时和资源这三者的关系
 
-# 流计算处理数据步骤 What Where When How
+# 流计算处理数据步骤 
 处理数据 可以分为4个步骤: 
 ## WHAT
 What results are calculated? = transformations.
@@ -27,7 +27,9 @@ When in processing time are results materialized? = triggers + watermarks.  
 Early/On-time/Late trigger：
 Zero or more early panes：在watermark经过窗口之前，即周期性的输出结果。这些结果可能是不准的()，但是避免了watermark 输出太慢的问题。
 无窗口”或无界聚合和流内部连接，窗口化（具有早期发射）聚合和流内部连接(inner join)
+
 A single on-time pane：仅在watermark通过窗口结束时触发一次。这时的结果可以看作是准确的。
+
 Zero or more late panes：在watermark通过窗口结束边界之后，如果这个窗口有late event，也可以触发计算。这样就可以随时更新窗口结果，避免了输出太快导致的结果不对的问题
 
 ## How
@@ -64,7 +66,9 @@ Retract优化规则, 如果earliy late,情况下 如何选择AccMode,AccRetractM
 
 
 Discarding（抛弃）：每个窗口产生输出之后，其state都被丢弃。也就是各个窗口之间完全独立。比较适合下游是聚合类的运算，比如对整数求和。
+
 Accumulating（累积）：所有窗口的历史状态都会被保存，每次late event到了之后，都会触发重新计算，更新之前计算结果。这种方式适合下游是可更新的数据存储，比如HBase/带主键的RDS table等。
+
 Accumulating & Retracting（累积&撤回）：Accumulating与第二点一样，即保存窗口的所有历史状态。撤回是指，late event到来之后，出了触发重新计算之外，还会把之前窗口的输出撤回。以下两个case非常适合用这种方式：
 
 如果窗口下游是分组逻辑，并且分组的key已经变了，那late event的最新数据下去之后，不能保证跟之前的数据在同一个分组，因此，需要撤回之前的结果。
@@ -104,8 +108,10 @@ Retract是数据流的重要构建块，用于优化流式传输中的早期触�
 
 ## Retract 解决方案
 
-从上面的例子中，我们了解到一些Operator需要额外的消息来帮助改进上游的早期触发结果。为了帮助这些Operator，我们添加了附加信号，以指示来自上游表的数据是新键上的“添加”还是具有新值的现有键上的“替换”。对于新键上的“添加，我们只需要发送一个数据并将其标记（每个数据的附加属性）作为累积消息。对于替换，我们基本上必须发送两个数据，一个作为具有旧值的Retract消息，而另一个作为具有新值的Accumulate消息。 
-
+从上面的例子中，我们了解到一些Operator需要额外的消息来帮助改进上游的早期触发结果。
+为了帮助这些Operator，我们添加了附加信号，以指示来自上游表的数据是新键上的“添加”还是具有新值的现有键上的“替换”。
+对于新键上的“添加，我们只需要发送一个数据并将其标记（每个数据的附加属性）作为累积消息。
+对于替换，我们基本上必须发送两个数据，一个作为具有旧值的Retract消息，而另一个作为具有新值的Accumulate消息。 
 
 
 ### 表的Trait
@@ -117,7 +123,7 @@ No-Window GroupBy, Early-fired Window, Join left right
 
 #### Append  表   
 
-新键上的添加   update (new Row)AccMode
+新键上的添加 update (new Row) AccMode
 
 ![image-20200913162143467](/images/posts/flink-retract-2.png)
 
@@ -140,7 +146,7 @@ a）如果替换表始终生成撤消消息，则会导致网络流量加倍;
 
 为了实现最小的空间/计算/网络成本，
 
-ReplaceTable +NeedRetract 即是AccRetractMode,其余的都是 AccMode
+**ReplaceTable +NeedRetract 即是AccRetractMode,其余的都是 AccMode**
 
 ![image-20200913162938587](/images/posts/flink-retract-4.png)
 
