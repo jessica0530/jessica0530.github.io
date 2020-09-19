@@ -10,11 +10,11 @@ keywords: kubernetes
 
 K8s 是管理容器的容器化部署模式
 
-![kubernetes-constructs-concepts-architecture](/Users/jessica/ideaproject-github/jessica0530.github.io/images/posts/kubernetes-constructs-concepts-architecture.jpg)
+![kubernetes-constructs-concepts-architecture](/images/posts/kubernetes-constructs-concepts-architecture.jpg)
 
 
 
-![Kubernetes-control-plane-taxonomy](/Users/jessica/ideaproject-github/jessica0530.github.io/images/posts/Kubernetes-control-plane-taxonomy.jpg)
+![Kubernetes-control-plane-taxonomy](/images/posts/Kubernetes-control-plane-taxonomy.jpg)
 
 
 
@@ -196,7 +196,7 @@ Pod相当于独立主机,可以封装一个或者多个容器
 
 ### 服务部署结构模型
 
-![k8s-deployment](/Users/jessica/ideaproject-github/jessica0530.github.io/images/posts/k8s-deployment.png)
+![k8s-deployment](/images/posts/k8s-deployment.png)
 
 ### 滚动更新
 
@@ -255,7 +255,7 @@ Selector:
 
 StatefulSet保证pod重新建立后,hostname不会发生变化,pod就可以通过hostname来关联维护的数据
 
-![k8s-statefulset](/Users/jessica/ideaproject-github/jessica0530.github.io/images/posts/k8s-statefulset.png)
+![k8s-statefulset](/images/posts/k8s-statefulset.png)
 
 
 
@@ -361,7 +361,7 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 
 
 
-![flink-submitjob-on-k8s](/Users/jessica/ideaproject-github/jessica0530.github.io/images/posts/flink-submitjob-on-k8s.jpg)
+![flink-submitjob-on-k8s](/images/posts/flink-submitjob-on-k8s.jpg)
 
 
 
