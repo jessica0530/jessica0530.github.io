@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Flink table 模块解读
-categories: [flink, table]
+title: Flink Table 模块解读
+categories: [flink]
 description: flink table模块解读
-keywords: flink, table , sql
+keywords: flink
 ---
 
 # flink-table-planner-blink
