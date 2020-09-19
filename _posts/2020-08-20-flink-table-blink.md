@@ -416,25 +416,25 @@ IncrementalAggregateRule
   * Stream physical RelNode for unbounded incremental group aggregate.
   *
   * <p>Considering the following sub-plan:
-  * {{{
+  * 
   *   StreamExecGlobalGroupAggregate (final-global-aggregate)
   *   +- StreamExecExchange
   *      +- StreamExecLocalGroupAggregate (final-local-aggregate)
   *         +- StreamExecGlobalGroupAggregate (partial-global-aggregate)
   *            +- StreamExecExchange
   *               +- StreamExecLocalGroupAggregate (partial-local-aggregate)
-  * }}}
+  * 
   *
   * partial-global-aggregate and final-local-aggregate can be combined as
   * this node to share [[org.apache.flink.api.common.state.State]].
   * now the sub-plan is
-  * {{{
+  * 
   *   StreamExecGlobalGroupAggregate (final-global-aggregate)
   *   +- StreamExecExchange
   *      +- StreamExecIncrementalGroupAggregate
   *         +- StreamExecExchange
   *            +- StreamExecLocalGroupAggregate (partial-local-aggregate)
-  * }}}
+  * 
   *
   * @see [[StreamExecGroupAggregateBase]] for more info.
   */
@@ -589,7 +589,7 @@ TwoStageOptimizedAggregateRule规则作用于 physicalPlan 产生之后。
    4. the input of exchange does not satisfy the shuffle distribution,
 
   and converts them to
-   {{{
+ 
     StreamExecGlobalGroupAggregate
    +- StreamExecExchange
       +- StreamExecLocalGroupAggregate
