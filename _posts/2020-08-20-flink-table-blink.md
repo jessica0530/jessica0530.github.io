@@ -509,7 +509,6 @@ GROUP BY day
   SELECT SUM(b), COUNT(DISTINCT c), AVG(b) FROM MyTable GROUP BY a
  
   flink logical plan:
-   {{{
   FlinkLogicalCalc(select=[a, $f1, $f2, CAST(IF(=($f4, 0:BIGINT), null:INTEGER, /($f3, $f4))) AS
      $f3])
   +- FlinkLogicalAggregate(group=[{0}], agg#0=[SUM($2)], agg#1=[$SUM0($3)], agg#2=[$SUM0($4)],
@@ -522,7 +521,6 @@ GROUP BY day
              +- FlinkLogicalCalc(select=[a, b, c, MOD(HASH_CODE(c), 1024) AS $f3])
                 +- FlinkLogicalTableSourceScan(table=[[MyTable,
                       source: [TestTableSource(a, b, c)]]], fields=[a, b, c])
- }}}
 
  '$e = 0' is equivalent to 'group by a, hash(c) % 256'
  '$e = 1' is equivalent to 'group by a'
