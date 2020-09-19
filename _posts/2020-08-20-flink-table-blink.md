@@ -506,26 +506,26 @@ GROUP BY day
 ```
 
 ```java
-  * SELECT SUM(b), COUNT(DISTINCT c), AVG(b) FROM MyTable GROUP BY a
-  *
-  * flink logical plan:
-  * {{{
-  * FlinkLogicalCalc(select=[a, $f1, $f2, CAST(IF(=($f4, 0:BIGINT), null:INTEGER, /($f3, $f4))) AS
-  *     $f3])
-  * +- FlinkLogicalAggregate(group=[{0}], agg#0=[SUM($2)], agg#1=[$SUM0($3)], agg#2=[$SUM0($4)],
-  *        agg#3=[$SUM0($5)])
-  *    +- FlinkLogicalAggregate(group=[{0, 3}], agg#0=[SUM($1) FILTER $4], agg#1=[COUNT(DISTINCT $2)
-  *           FILTER $5], agg#2=[$SUM0($1) FILTER $4], agg#3=[COUNT($1) FILTER $4])
-  *       +- FlinkLogicalCalc(select=[a, b, c, $f3, =($e, 1) AS $g_1, =($e, 0) AS $g_0])
-  *          +- FlinkLogicalExpand(projects=[{a=[$0], b=[$1], c=[$2], $f3=[$3], $e=[0]},
-  *                 {a=[$0], b=[$1], c=[$2], $f3=[null], $e=[1]}])
-  *             +- FlinkLogicalCalc(select=[a, b, c, MOD(HASH_CODE(c), 1024) AS $f3])
-  *                +- FlinkLogicalTableSourceScan(table=[[MyTable,
-  *                       source: [TestTableSource(a, b, c)]]], fields=[a, b, c])
-  * }}}
-  *
-  * '$e = 0' is equivalent to 'group by a, hash(c) % 256'
-  * '$e = 1' is equivalent to 'group by a'
+  SELECT SUM(b), COUNT(DISTINCT c), AVG(b) FROM MyTable GROUP BY a
+ 
+  flink logical plan:
+   {{{
+  FlinkLogicalCalc(select=[a, $f1, $f2, CAST(IF(=($f4, 0:BIGINT), null:INTEGER, /($f3, $f4))) AS
+     $f3])
+  +- FlinkLogicalAggregate(group=[{0}], agg#0=[SUM($2)], agg#1=[$SUM0($3)], agg#2=[$SUM0($4)],
+        agg#3=[$SUM0($5)])
+    +- FlinkLogicalAggregate(group=[{0, 3}], agg#0=[SUM($1) FILTER $4], agg#1=[COUNT(DISTINCT $2)
+          FILTER $5], agg#2=[$SUM0($1) FILTER $4], agg#3=[COUNT($1) FILTER $4])
+       +- FlinkLogicalCalc(select=[a, b, c, $f3, =($e, 1) AS $g_1, =($e, 0) AS $g_0])
+         +- FlinkLogicalExpand(projects=[{a=[$0], b=[$1], c=[$2], $f3=[$3], $e=[0]},
+                 {a=[$0], b=[$1], c=[$2], $f3=[null], $e=[1]}])
+             +- FlinkLogicalCalc(select=[a, b, c, MOD(HASH_CODE(c), 1024) AS $f3])
+                +- FlinkLogicalTableSourceScan(table=[[MyTable,
+                      source: [TestTableSource(a, b, c)]]], fields=[a, b, c])
+ }}}
+
+ '$e = 0' is equivalent to 'group by a, hash(c) % 256'
+ '$e = 1' is equivalent to 'group by a'
 ```
 
 ```java
@@ -584,18 +584,18 @@ TwoStageOptimizedAggregateRule规则作用于 physicalPlan 产生之后。
 
 ```java
  Rule that matches [[StreamExecGroupAggregate]] on [[StreamExecExchange]]
-  * with the following condition:
-  * 1. mini-batch is enabled in given TableConfig,
-  * 2. two-phase aggregation is enabled in given TableConfig,
-  * 3. all aggregate functions are mergeable,
-  * 4. the input of exchange does not satisfy the shuffle distribution,
-  *
-  * and converts them to
-  * {{{
-  *   StreamExecGlobalGroupAggregate
-  *   +- StreamExecExchange
-  *      +- StreamExecLocalGroupAggregate
-  *         +- input of exchange
+   with the following condition:
+   1. mini-batch is enabled in given TableConfig,
+   2. two-phase aggregation is enabled in given TableConfig,
+   3. all aggregate functions are mergeable,
+   4. the input of exchange does not satisfy the shuffle distribution,
+
+  and converts them to
+   {{{
+    StreamExecGlobalGroupAggregate
+   +- StreamExecExchange
+      +- StreamExecLocalGroupAggregate
+          +- input of exchange
   
   
 ```
