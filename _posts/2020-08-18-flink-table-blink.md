@@ -1,7 +1,6 @@
-
 ---
 layout: post
-title: flink table 模块解读
+title: Flink table 模块解读
 categories: [flink, table]
 description: flink table模块解读
 keywords: flink, table , sql
