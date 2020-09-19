@@ -1,10 +1,11 @@
 
-
+---
 layout: post
-title: blink table 模块解读
-categories: [blink, table]
-description: blink table模块解读
-keywords: blink, table , sql
+title: flink table 模块解读
+categories: [flink, table]
+description: flink table模块解读
+keywords: flink, table , sql
+---
 
 # flink-table-planner-blink
 
