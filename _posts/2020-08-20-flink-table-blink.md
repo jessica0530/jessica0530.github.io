@@ -8,7 +8,9 @@ keywords: flink
 
 # flink-table-planner-blink
 
-# flink sql![flink-sql的工作机制](/images/posts/flink-sql的工作机制.jpg)
+# flink sql
+
+![flink-sql的工作机制](/images/posts/flink-sql的工作机制.jpg)
 
 ```sql
 
