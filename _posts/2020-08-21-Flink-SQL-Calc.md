@@ -12,8 +12,6 @@ SQL 基础算子讲解
 
 ## Aggregate
 
-##### 功能
-
 ### MicroBatchGroupAggFunction
 
 基本的聚合Operator,只能处理 key 没有明显的倾斜情况,并且key的重复率比较大来减少对 rocksdb的访问量,如果key没有重复 那性能和开不开 microbatch一致
@@ -199,7 +197,7 @@ Expand
 
 
 
-#### MicroBatchLocalGroupAggFunction + GlobalGroupAggFunction
+### MicroBatchLocalGroupAggFunction + GlobalGroupAggFunction
 
 主要解决 单个GroupBy节点数据热点问题,将原来的单GroupBy节点 分成Local+Global两个阶段来聚合
 
@@ -306,12 +304,6 @@ Local+Global两个Function的具体实现
 //finishBundle
   从state获取状态,把buffer中的结果merge进 状态里面,往下游发送数据更新状态
 ```
-
-
-
-##### 数据结构
-
-BytesHashMap 需要 Agg values 是固定长度,用在 batch里面
 
 ## Join
 
