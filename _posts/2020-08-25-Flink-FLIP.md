@@ -171,3 +171,85 @@ Flink为用户功能提供状态抽象，以确保对流进行容错处理。用
   - 纠正无效状态
 
 https://cwiki.apache.org/confluence/display/FLINK/FLIP-43%3A+State+Processor+API
+
+## FLIP-44
+
+Local Agg  感觉就是 代码生成的时候不加 isStateBackend
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-44%3A+Support+Local+Aggregation+in+Flink
+
+
+
+## FLIP-45
+
+当前，在我们发布的版本[1]中，主要有两种完成工作的方法：停止和取消，它们之间的区别如下：
+
+- 在取消调用时，作业中的操作员会立即收到cancel（）方法调用，以尽快将其取消。如果取消调用后操作员没有停止，Flink将开始定期中断线程，直到其停止。
+- “停止”调用是停止正在运行的流作业的一种更合适的方法。停止仅适用于使用实现StoppableFunction接口的源的作业。当用户请求停止工作时，所有源都将收到stop（）方法调用。作业将一直运行，直到所有源均正确关闭为止。这使作业可以完成对所有飞行数据的处理。
+
+但是，对于具有保留检查点的有状态运算符，stop调用将不会使用任何检查点，因此，在恢复作业时，需要通过源倒带从最新的检查点恢复作业，这导致等待处理所有运行中数据毫无意义（所有操作都需要再次处理）。换句话说，在这种情况下，停止和取消之间没有真正的区别，因此在概念上存在歧义。
+
+另一方面，在[FLIP-34](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=103090212)之后的最新主分支中 ，作业停止总是伴随着一个保存点，这具有以下问题：
+
+- 从用户角度来看，这是意外的行为更改，旧的stop命令将在没有保存点配置的作业上失败。
+- 这会减慢作业停止过程的速度，并且在争用资源时可能会阻止启动新作业。
+
+本文档旨在增强作业停止的语义，增加正常停止（不带保存点）的支持，以及在启用保留检查点时防止不必要的源倒带。为了实现这些目标，我们将首先讨论作业停止和取消之间以及检查点和保存点之间的概念差异，类似于数据库系统中的概念。然后，我们将描述如何增强作业停止语义以及如何实现它。
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-45%3A+Reinforce+Job+Stop+Semantic
+
+## FLIP-47
+
+我觉得 除了 增量 和触发方式 确实没啥区别
+
+| **Y** | Yes, the feature is supported    |
+| ----- | -------------------------------- |
+| **N** | No, the feature is not supported |
+| **M** | Supported but not in all cases   |
+
+|             | user-controlled | incremental | self-contained | side-effects | recovery | rescaling | unified format |
+| ----------- | --------------- | ----------- | -------------- | ------------ | -------- | --------- | -------------- |
+| savepoints  | **Y**           | **N**       | **Y**          | **Y**        | **Y**    | **Y**     | **Y**          |
+| checkpoints | **M**           | **Y**       | **Y**          | **Y**        | **Y**    | **M**     | **N**          |
+
+
+
+尽管创建保存点和检查点时会考虑到不同的语义和假设，但是在此过程中添加的一些功能使这些行变得模糊，并使这些假设在所有情况下均不成立，并给用户带来了潜在的警告。另外，这两个功能的某些语义没有明确定义，对用户造成负面影响。
+
+该提案： 
+
+1. 讨论检查点和保存点之间的关系， 
+2. 尝试在统一的视角下修复其语义，基于该视角，检查点和保存点都可以视为状态快照，并且
+3. 基于上述内容，它提出了一些附加措施，旨在减少用户用脚射击自己的风险。
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-47%3A+Checkpoints+vs.+Savepoints
+
+
+
+## FLIP-48
+
+Intermediate Result 我还没搞懂是啥
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-48%3A+Pluggable+Intermediate+Result+Storage
+
+
+
+## FLIP-49
+
+内部 on-heap /off-heap的配置
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-49%3A+Unified+Memory+Configuration+for+TaskExecutors
+
+
+
+## Flip-50
+
+HeapKeyedState 可以 spill 到磁盘, 问题是 如果是 排序 或者是 查询的话 怎么办
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-50%3A+Spill-able+Heap+Keyed+State+Backend
+
+## FLIP-53
+
+资源 声明配置调度
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-53%3A+Fine+Grained+Operator+Resource+Management
