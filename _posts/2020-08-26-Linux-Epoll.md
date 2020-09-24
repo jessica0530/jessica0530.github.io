@@ -1,9 +1,9 @@
 ---
 layout: post
-title: template page
-categories: [cate1, cate2]
+title: Linux
+categories: [linux]
 description: some word here
-keywords: keyword1, keyword2
+keywords: linux
 ---
 
 Content here
