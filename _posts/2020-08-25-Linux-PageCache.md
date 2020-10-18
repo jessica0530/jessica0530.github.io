@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linux PageCache
-categories: [pagecache]
+categories: [linux]
 description: Linux PageCache
 keywords: pageCache
 ---

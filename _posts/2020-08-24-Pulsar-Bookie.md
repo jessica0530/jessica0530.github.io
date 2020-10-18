@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pulsar Bookie介绍
-categories: [bookie]
+categories: [pulsar]
 description: Pulsar Bookie
 keywords: bookie
 ---
