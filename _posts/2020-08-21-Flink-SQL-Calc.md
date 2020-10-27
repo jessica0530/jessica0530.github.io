@@ -464,11 +464,13 @@ SemiJoin(LogicalProject(X), Y) -> LogicalProject(SemiJoin(X, Y))
 
 Rank 具体算子包括:Row_NUMBER,RANK,DENSE_RANK
 
-**row_numbe**r的用途非常广泛，排序最好用它，它会为查询出来的每一行记录生成一个序号，依次排序且不会重复，注意使用row_number函数时必须要用over子句选择对某一列进行排序才能生成序号。
+**row_numbe**r的用途非常广泛，排序最好用它，它会为查询出来的每一行记录生成一个序号，依次排序且不会重复，注意使用row_number函数时必须要用over子句选择对某一列进行排序才能生成序号。比如 1 2 3 相同的值也1 2 3
 
-**rank**函数用于返回结果集的分区内每行的排名，行的排名是相关行之前的排名数加一。简单来说rank函数就是对查询出来的记录进行排名，与row_number函数不同的是，rank函数考虑到了over子句中排序字段值相同的情况，如果使用rank函数来生成序号，over子句中排序字段值相同的序号是一样的，后面字段值不相同的序号将跳过相同的排名号排下一个，也就是相关行之前的排名数加一，可以理解为根据当前的记录数生成序号，后面的记录依此类推。
 
-**dense_rank**函数的功能与rank函数类似，dense_rank函数在生成序号时是连续的，而rank函数生成的序号有可能不连续。dense_rank函数出现相同排名时，将不跳过相同排名号，rank值紧接上一次的rank值。在各个分组内，rank()是跳跃排序，有两个第一名时接下来就是第三名，dense_rank()是连续排序，有两个第一名时仍然跟着第二名。
+
+**rank**函数用于返回结果集的分区内每行的排名，行的排名是相关行之前的排名数加一。简单来说rank函数就是对查询出来的记录进行排名，与row_number函数不同的是，rank函数考虑到了over子句中排序字段值相同的情况，如果使用rank函数来生成序号，over子句中排序字段值相同的序号是一样的，后面字段值不相同的序号将跳过相同的排名号排下一个，也就是相关行之前的排名数加一，可以理解为根据当前的记录数生成序号，后面的记录依此类推。 比如相同的值 1 1 3
+
+**dense_rank**函数的功能与rank函数类似，dense_rank函数在生成序号时是连续的，而rank函数生成的序号有可能不连续。dense_rank函数出现相同排名时，将不跳过相同排名号，rank值紧接上一次的rank值。在各个分组内，rank()是跳跃排序，有两个第一名时接下来就是第三名，dense_rank()是连续排序，有两个第一名时仍然跟着第二名。相同的值是 1 1 2
 
 ```
 -每门课程第一名只取一个： 
@@ -477,6 +479,32 @@ select * from (select name,course,row_number() over(partition by course order by
 select * from (select name,course,dense_rank() over(partition by course order by score desc) rank from student) where rank=1;
 --每门课程第一名取所有：
 select * from (select name,course,rank() over(partition by course order by score desc) rank from student) where rank=1;
+```
+
+```
+算子需要实现的接口
+
+//处理 insert type的record with rank number
+processInsertWithNumber(Row sortKey,Row input,long rankEnd,TopNBuffer buffer)
+
+//处理 insert type的record without rank number
+processInsertWithoutNumber(Row sortKey,Row input,TopNBuffer buffer,long rankStart,long rankEnd)
+
+//处理 retract type的record with rank number
+processRetractWithNumber(Row sortKey,Row input,long rankEnd,TopNBuffer buffer)
+
+//处理 retract type的record without rank number
+processRetractWithoutNumber(Row sortKey,Row input,TopNBuffer buffer,long rankStart,long rankEnd)
+
+//处理 update type的record with rank number
+processUpdateWithNumber(Row sortKey,Row input,long rankEnd,TopNBuffer buffer)
+
+//处理 update type的record without rank number
+processUpdateWithoutNumber(Row sortKey,Row input,TopNBuffer buffer,long rankStart,long rankEnd)
+
+
+//get rank number and inner rank number
+Tuple2<Integer, Integer> rowNumber(Row sortKey, Row inputRow, TopNBuffer<Row> buffer);
 ```
 
 
@@ -559,17 +587,100 @@ def analyzeRankStrategy(
 
 ### AppendFastRank
 
+场景: 上游的input stream 是 Append-Only,比如上游是个 kafka source,那只需要根据字段里面的sortKey来进行排序
+
+```sql
+
+1.checkSortKeyInBufferRange  TopNBuffer  是个 treeMap<sortKey,Collection<Data>>
+先check 当前数据的sortKey 是否在Rank范围内
+2. 不在的话 不进行处理
+3. 在的话 buffer中先put该sortkey和数据,在dataState中也更新该数据,
+4. processElementWithRowNumber的情况下,把受影响的数据进行更新 ,发送 before和after数据,并且把已经从 topN删除的数据 从 state和 buffer中删除
+
+
+5. processElementWithoutRowNumber 的情况下
+buffer 获取当前TopNum 如果大于rankEnd的话
+删除 lastKey 并且collectDelete ,再collectInsert 当前值,并且更新 buffer.remove和 datastate.remove
+```
+
 
 
 ### UpdateFastRank
 
+场景:上游是个 update stream,比如 group by ,left join,emit窗口,是 RetractSortedRank的优化版本
 
+比如以下场景
+
+```sql
+聚合大类下的店铺的订单金额,再根据这个金额找到大类下 销售最高的前10个店铺
+
+这种情况 上游的unique_key包含 partition key,且聚合函数是单调递增 且排序是降序的情况下,因为可以 只保存 前TopN的数据,就可以用 UpdateFastRank优化
+
+
+
+为啥 单调递增 且排序也是升序的不能优化,因为 降序可以保证 新加入排名的数据 只是在 TopN中的数据 踢掉最后一名的数据, 但是 降序的话,因为 他是递增的 所以会导致自己的数据  会被排除再topN外,那就需要给TopN补数,那就不能只保存前TopN的数据
+```
+
+
+
+SQL例子
+
+```sql
+Select sum(order) as order_sum, catagoryId,shopId from table group by catagoryId,shopid
+
+
+
+Select shopid,row_number over (partition by catagoryid order by order_sum desc) as rank where rank <=10
+```
+
+
+
+1.order by字段是升序的并且上游数据聚合函数是单调递减的,或者orderby 字段是降序的并且聚合函数是上游单调递增,比如sum 是 递增的
+
+2. Input data 有唯一的主键 比如 group by keys
+
+3. Input stream 不能包含 delete record或者 retract record
+
+4. function 必须是 row_number
+
+   
+
+   
+
+   ```sql
+   processElementWithRowNumber 这个加rowNumber 对于下游处理不当来说 是会产生问题的,比如hbase sink的话，
+   要 rownumber +所有字段作为一个 rowkey去保存,有些用户 rownumber+partitionkey作为 rowkey字段,
+   内部是按整条数据  rownumber + partitionkey+ sortkey 来update和 retract删除,只靠 2个字段来删除 最终的数据 是不正确的
+   
+   processElementWithoutRowNumber
+   不需要 rank的情况下,不用动 rank的名次,该条数据在topN中,只需要 更新该条数据即可,有 踢数据的情况的话就要加数据和踢数据
+   ```
+
+   
+
+   
 
 ### RetractSortedRank
 
+```
+Input stream can contain any change kind: INSERT, DELETE, UPDATE_BEFORE and UPDATE_AFTER
+```
+
+```
+isAccumulate
+
+要处理 retract和 update的数据 
+
+原来版本State里面是保存 全部数据,只在registerProcessingCleanupTimer 进行清理
+
+增加了KeyedSortedMapState 和 TopNBuffer 要比 TopN里面存的数据要多的
 
 
-## Sort
+```
+
+
+
+
 
 ## Window
 
