@@ -43,7 +43,7 @@ Akka中有两个策略，分别是：OneForOneStrategy 和 AllForOneStrategy。�
 
 https://cwiki.apache.org/confluence/display/FLINK/FLIP-19%3A+Improved+BLOB+storage+architecture
 
-## ![blob-server](/Users/jessica/ideaproject-github/jessica0530.github.io/images/posts/blob-server.png)
+## ![blob-server](/images/posts/blob-server.png)
 
 ## BlobServer
 
@@ -79,9 +79,9 @@ BoardCastVariableMananger等
         ...
 ```
 
-![flink-checkpoint1](/Users/jessica/ideaproject-github/jessica0530.github.io/images/posts/flink-checkpoint1.png)
+![flink-checkpoint1](/images/posts/flink-checkpoint1.png)
 
-![flink-checkpoint2](/Users/jessica/ideaproject-github/jessica0530.github.io/images/posts/flink-checkpoint2.png)
+![flink-checkpoint2](/images/posts/flink-checkpoint2.png)
 
 ### Channel
 
@@ -297,7 +297,7 @@ Task
 
 作业转化和数据流通过程
 
-![flink 处理数据](/Users/jessica/ideaproject-github/jessica0530.github.io/images/posts/flink 处理数据.png)
+![flink 处理数据](/images/posts/flink 处理数据.png)
 
 
 
