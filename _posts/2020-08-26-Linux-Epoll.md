@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Linux
+title: Linux IO 与 Epoll
 categories: [linux]
-description: some word here
+description: Linux Epoll
 keywords: linux
 ---
 
-Content here
+转载 https://segmentfault.com/a/1190000003063859
