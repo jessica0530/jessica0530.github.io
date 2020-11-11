@@ -38,7 +38,8 @@ free 命令中的 buff/cache 是由 Buffers、Cached 和 SReclaimable 这三项�
 
 第一种，应用程序维护自己的 Cache 做更加细粒度的控制，比如 MySQL 就是这样做的，你可以参考MySQL Buffer Pool ，它的实现复杂度还是很高的。对于大多数应用而言，实现自己的 Cache 成本还是挺高的，不如内核的 Page Cache 来得简单高效。
 
-第二种，直接使用 Direct I/O 来绕过 Page Cache，不使用 Cache 了，省的去管它了。这种方法可行么？那我们继续用数据说话，看看这种做法的问题在哪儿？
+第二种，直接使用 Direct I/O 来绕过 Page Cache，不使用 Cache 了，省的去管它了。
+
 
 # 为什么需要 Page Cache？
 
