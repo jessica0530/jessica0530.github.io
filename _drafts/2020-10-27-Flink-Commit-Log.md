@@ -265,4 +265,175 @@ full GC、node/process crash还是网络抖动，
 Sidecar设计模式	
 
 
+SQL 
+计算列 ,pk定义, createfunction,struct map column
+
+try-cast
+
+ val operatorCode = if (nullCheck) {
+      s"""
+         |${operand.code}
+         |$resultTypeTerm $resultTerm;
+         |boolean $nullTerm;
+         |if (!${operand.nullTerm}) {
+         |  try {
+         |     $resultTerm = ${expr(operand.resultTerm)};
+         |     $nullTerm = false;
+         |  } catch (Exception ex) {
+         |     $resultTerm = $defaultValue;
+         |     $nullTerm = true;
+         |  }
+         |}
+         |else {
+         |  $resultTerm = $defaultValue;
+         |  $nullTerm = true;
+         |}
+         |""".stripMargin
+    }
+    else {
+      s"""
+         |${operand.code}
+         |$resultTypeTerm $resultTerm = ${expr(operand.resultTerm)};
+         |""".stripMargin
+    }
+
+SqlWatermark Watermark(Span s) :
+{
+    SqlIdentifier timeField;
+    Integer offset;
+}
+{
+    <WATERMARK> <FOR> timeField = SimpleIdentifier() <AS> <WITHOFFSET>
+    <LPAREN>
+        timeField = SimpleIdentifier()
+        <COMMA>
+        offset = IntLiteral()
+    <RPAREN>
+    {
+        return new SqlWatermark(s.add(this).pos(), timeField, offset);
+    }
+}
+
+SqlNodeList StructSubColumns(Span s) :
+{
+}
+{
+    <STRUCT>
+    <LT>
+    {
+        List<SqlNode> subColumns = Lists.newArrayList();
+        SqlNode subColumn = null;
+    }
+    subColumn = TableColumn()
+    { subColumns.add(subColumn); }
+    (
+        <COMMA> subColumn = TableColumn()
+        { subColumns.add(subColumn); }
+    )*
+    <GT>
+    { return new SqlNodeList(subColumns, s.addAll(subColumns).pos());  }
+}
+
+table 
+
+struct 类型的字段
+
+struct field struct
+ if (field != null) {
+else {
+             // Throw an error if the table field was not found.
+             // handle the condition that table name can be found in struct type field
+            final SqlIdentifier prefix = identifier.skipLast(1);
+            throw validator.newValidationError(prefix,
+                    RESOURCE.tableNameNotFound(prefix.toString()));
+          }
+
+hint
+
+SqlLiteral hint
+
+
+LookupJoinAsyncFunction
+
+PartialKeyGrouping
+
+可以看到PartialKeyGrouping是一种CustomStreamGrouping，在prepare的时候，初始化了long[] targetTaskStats用于统计每个task 用过的次数
+partialKeyGrouping如果没有指定fields，则默认按outputFields的第一个field来计算
+这里使用guava类库提供的Hashing.murmur3_128函数，构造了两个HashFunction，然后计算哈希值的绝对值与targetTasks.size()取余数得到两个可选的taskId下标
+然后根据targetTaskStats的统计值，取用过的次数小的那个taskId，选中之后更新targetTaskStats
+
+int firstChoice = (int) (Math.abs(h1.hashBytes(key.toString().getBytes()).asLong()) % numPartitions);
+int secondChoice = (int) (Math.abs(h2.hashBytes(key.toString().getBytes()).asLong()) % numPartitions);
+
+常量函数 会一直返回同一个值不变
+
+timezone
+
+SqlFunction
+  public static java.sql.Time internalToTime(int v) {
+    return new java.sql.Time(v - LOCAL_TZ.getOffset(v));
+  }
+public static java.sql.Time internalToTime(Integer v) {
+		return new java.sql.Time(v);
+	}  
+  
+  
+Runtime
+
+hot-update  热更新
+提交新的jar包, 不用停止旧的实例就让新的执行逻辑生效,减少切换时间
+
+对于并行度之间无数据交换的作业，作业业务逻辑修改，需要重启作业时，期望能够尽可能小地减少流量抖动。
+当前停止整个流，再重启的方式会造成消费中断，针对这类作业期望
+
+ 可以按并行度热更新一个运行中作业的执行逻辑（JobGraph结构不变的前提下）
+	*1.* *灰度更新* - 支持不同并行度按不同的jar版本运行；
+
+	2. 热更新 - *滚动更新*所有并行度为新版本，作业运行不中断；
+
+
+声明式调度 
+
+针对核心，高保障作业在资源不足的情况下，
+存在无法保障的问题，
+引入新的声明资源调度和基于改调度的降级方案，来为核心，高保障作业提供更高的保障。
+
+核心高保障作业  会有 full restart重启的情况,碎片问题,会出现资源不足 
+
+ResourceController会根据NodeManager 汇报上来的机器使用情况和Pod分布情况，
+从优先级低的作业中选择影响作业数量最小，
+影响作业最小的策略来选择作业来降级（降级有两种将资源调整到min和直接停止作业)， 选择不出来满足的资源则调用FM HA切换和告警。
+
+
+碎片问题的解决方案
+
+
+
+K8S 提供了  request和limit
+本身提供了资源超卖的语义 
+
+一个pod能最低给多少资源
+最高给多少资源
+会弹性的伸缩
+
+
+
+通过资源的超卖,就能控制公有队列的资源能多卖出一部分
+
+就能减少资源碎片了
+
+本来只剩1C1G,我们也超卖出去卖给了需要2C2G的应用 
+
+然后就没有1C1G的碎片了
+
+因为同一个机器上的很多其他POD,他们实际都用不到他们需要的资源 
+
+我们90%以上的 比如配置了4C4G,但是他们完全用不完,大部分时间都只是用了2C2G
+
+这些作业没用的2C2G也被我们拿去卖了
+
+16C32G的机器,被我们卖给了总的需要32C64G的总作业 
+
+
+
 	
