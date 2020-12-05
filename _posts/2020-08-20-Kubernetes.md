@@ -10,6 +10,8 @@ keywords: kubernetes
 
 K8s 是管理容器的容器化部署模式
 
+https://jimmysong.io/kubernetes-handbook/guide/kubectl-cheatsheet.html
+
 ![kubernetes-constructs-concepts-architecture](/images/posts/kubernetes-constructs-concepts-architecture.jpg)
 
 
