@@ -66,6 +66,10 @@ u2 attributes_count;//此类的属性表中的属性数 attribute_info attribute
 
 ![类加载过程](/images/posts/类加载过程.png)
 
+
+
+![class-loader](/images/posts/class-loader.jpg)
+
 # 类加载器
 
 JVM 中内置了三个重要的 ClassLoader，除了 BootstrapClassLoader 其他类加载器均由 Java 实现且 全部继承自 java.lang.ClassLoader : 
@@ -130,3 +134,43 @@ c = findClass(name);
 除了 BootstrapClassLoader 其他类加载器均由 Java 实现且全部继承自 java.lang.ClassLoader 。如 果我们要自定义自己的类加载器，很明显需要继承 ClassLoader  
 
 加入自定义的类加载器来进行拓展，典型的如增加除了磁盘位置之外的Class文件来源，或者通过类加载器实现类的隔离、重载等功能
+
+
+
+# Native Method
+
+
+
+## 与java环境外交互
+
+有时java应用需要与java外面的环境交互。这是本地方法存在的主要原因，你可以想想java需要与一些底层系统如操作系统或某些硬件交换信息时的情况。本地方法正是这样一种交流机制：它为我们提供了一个非常简洁的接口，而且我们无需去了解java应用之外的繁琐的细节
+
+## 与操作系统交互
+
+JVM支持着java语言本身和运行时库，它是java程序赖以生存的平台，它由一个解释器（解释字节码）和一些连接到本地代码的库组成。然而不管怎样，它毕竟不是一个完整的系统，它经常依赖于一些底层（underneath在下面的）系统的支持。这些底层系统常常是强大的操作系统。通过使用本地方法，我们得以用java实现了jre的与底层系统的交互，甚至JVM的一些部分就是用C写的，还有，如果我们要使用一些java语言本身没有提供封装的操作系统的特性时，我们也需要使用本地方法
+
+## Sun's Java
+
+Sun的解释器是用C实现的，这使得它能像一些普通的C一样与外部交互。jre大部分是用java实现的，它也通过一些本地方法与外界交互。例如：类java.lang.Thread 的 setPriority()方法是用java实现的，但是它实现调用的是该类里的本地方法setPriority0()。这个本地方法是用C实现的，并被植入JVM内部，在Windows 95的平台上，这个本地方法最终将调用Win32 SetPriority() API。这是一个本地方法的具体实现由JVM直接提供，更多的情况是本地方法由外部的动态链接库（external dynamic link library）提供，然后被JVM调用。
+
+
+
+可以将native方法比作Java程序同Ｃ程序的接口，其实现步骤：
+１、在Java中声明native()方法，然后编译；
+２、用javah产生一个.h文件；
+３、写一个.cpp文件实现native导出方法，其中需要包含第二步产生的.h文件（注意其中又包含了JDK带的jni.h文件）；
+４、将第三步的.cpp文件编译成动态链接库文件；
+５、在Java中用System.loadLibrary()方法加载第四步产生的动态链接库文件，这个native()方法就可以在Java中被访问了
+
+
+
+**JNI**
+
+开始本篇的内容之前，首先要讲一下JNI。Java很好，使用的人很多、应用极 广，但是Java不是完美的。Java的不足体现在运行速度要比传统的C++慢上许多之外，还有Java无法直接访问到操作系统底层如硬件系统，为此 Java提供了JNI来实现对于底层的访问。JNI，Java Native Interface，它是Java的SDK一部分，JNI允许Java代码使用以其他语言编写的代码和代码库，本地程序中的函数也可以调用Java层的函 数，即JNI实现了Java和本地代码间的双向交互。
+
+ 
+
+**Native**
+
+JDK开放给用户的源码中随处可见Native方法，被Native关键字声明的方法说明该方法不是以Java语言实现的，而是以本地语言实现的，Java可以直接拿来用。这里有一个概念，就是本地语言，本地语言这四个字，个人理解应该就是可以和操作系统直接交互的语言。
+
