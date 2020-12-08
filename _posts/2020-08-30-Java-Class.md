@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Java Class
+title: Java Class 和类加载过程
 categories: [java]
 description: Java Class
-keywords: java, keyword2
+keywords: java
 ---
 
 # 类文件
@@ -64,7 +64,7 @@ u2 attributes_count;//此类的属性表中的属性数 attribute_info attribute
 2. 将字节流所代表的静态存储结构转换为方法区的运行时数据结构
 3. 在内存中生成一个代表该类的 Class 对象,作为方法区这些数据的访问入口 
 
-
+![类加载过程](/images/posts/类加载过程.png)
 
 # 类加载器
 
