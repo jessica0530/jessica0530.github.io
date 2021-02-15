@@ -256,6 +256,367 @@ https://cwiki.apache.org/confluence/display/FLINK/FLIP-53%3A+Fine+Grained+Operat
 
 
 
+## FLIP-56 Dynamic Slot Allocation
+
+当前（Flink 1.9），Flink采用一种粗粒度的资源管理方法，该方法将任务部署到与作业的最大预定义插槽并行度相同的任务中，而不管每个任务/操作员可以使用多少资源。
+
+当前的方法易于设置，但可能没有最佳的性能和资源利用率。 
+
+- 任务可能具有不同的并行性，因此并非所有插槽都包含整个任务流水线。对于任务较少的插槽，为整个管道预定义的插槽资源可能很浪费。
+- 在所有资源方面（堆，网络，托管等），使插槽资源与任务要求保持一致可能很困难。 
+
+我们提出了细粒度的资源管理，可以在已知或可以调整单个任务的资源需求的条件下优化资源的实用性。
+
+我们建议改善Flink的资源管理机制，以便：
+
+- 它适用于流作业和批处理作业。
+- 无论指定任务资源需求还是未知任务，它都能很好地工作。
+
+该FLIP专注于细粒度资源管理的时隙分配方面。
+
+https://jira.apache.org/jira/browse/FLINK-14187
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-56%3A+Dynamic+Slot+Allocation
+
+## FLIP-63 batch table partition
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-63%3A+Rework+table+partition+support
+
+## FLIP-64 support for temporary objects in table module
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-64%3A+Support+for+Temporary+Objects+in+Table+module
+
+## FLIP-67 
+
+https://issues.apache.org/jira/browse/FLINK-14474
+
+这个是啥 没有看懂
+
+[FLIP-36](https://cwiki.apache.org/confluence/display/FLINK/FLIP-36%3A+Support+Interactive+Programming+in+Flink)提出了一种新的编程范例，其中用户逐步建立了作业。
+
+为了以有效的方式支持这一点，应该延长分区生命周期以支持*集群分区*的概念，*集群*分区是可以在工作生命周期之外存在的分区。
+
+然后，这些分区可以以相当有效的方式由后续作业重用，因为它们不必先持久存储到外部存储中，并且可以安排消耗性任务来利用数据局部性。
+
+请注意，此FLIP本身与群集分区的*使用**无关*，包括客户端API，作业提交，调度和读取所述分区。
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-67%3A+Cluster+partitions+lifecycle
+
+## FLIP-76 Unaligned Checkpoints
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-76%3A+Unaligned+Checkpoints
+
+## FLIP-85 Flink Application Mode
+
+当前，根据群集生命周期和资源隔离保证，可以在*会话*群集或*每个作业*上执行Flink作业。
+
+*会话模式*假定已经在运行的集群，并使用该集群的资源来执行提交的作业。在同一集群中执行的作业使用并因此竞争相同的资源。此外，如果其中一项作业行为不当或关闭了任务管理器，则必须重新启动在该任务管理器上运行的所有作业。除了对作业本身造成负面影响外，这还意味着潜在的大规模恢复过程，其中所有重新启动的作业同时访问文件系统，并使其无法用于其他服务。最后，在正在运行的会话群集上，指标通常以汇总的方式呈现在所有作业中（*例如* 对群集的REST接口具有访问权限的任何人都可以看到CPU使用率和所有正在运行的作业，而这可能不是您想要的功能。
+
+考虑到上述资源隔离问题，用户经常选择*按作业*模式。在这种模式下，可用的群集管理器（*如*纱，Kubernetes）用于旋转起来每个提交的作业一个集群，该集群可用于这项工作*只*。对于管理整个组织或公司数十或数百个流水线管道的平台开发人员而言，此模式也是首选模式。
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-85+Flink+Application+Mode
+
+## FLIP-87 Primary key constraints in Table API
+
+- 主约束和唯一约束是可以在查询优化期间使用的重要提示，例如，如果组条件包含整个主键/唯一键约束，则减少要分组的列数。*
+  *
+- 另外，主键对于upsert流非常有用。主键可以用作upsert键。
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP+87%3A+Primary+key+constraints+in+Table+API
+
+## FLIP-92 N-Ary Stream Operator Flink
+
+
+
+最终目标是允许DataStream API用户（例如Blink）执行以下操作：
+
+1. 有效地实现A *多广播联接-具有单个操作员链，其中在本地读取探测表（源）（实际上是在执行联接的任务内），然后与多个其他广播表联接。 
+2. 假设有2个或更多源，并且已在同一密钥上预先分区。在这种情况下，我们应该能够在单个Task中执行所有表读取和联接。
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-92%3A+Add+N-Ary+Stream+Operator+in+Flink
+
+## FLIP-94 两阶段提交 重构 
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-94%3A+Rework+2-phase+commit+abstractions
+
+## FLIP-95 新的TableSource 和TableSink
+
+
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-95%3A+New+TableSource+and+TableSink+interfaces
+
+## FLIP-105  Support to Interpret Changelog in Flink SQL Introducing Debezium and Canal Format
+
+
+
+https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=147427289
+
+## FLIP-107 SQL connector 中的 metadata 数据处理
+
+
+
+https://issues.apache.org/jira/browse/FLINK-15869
+
+除了主要的有效载荷外，大多数连接器（还有许多格式）还公开了其他应可读的信息（取决于用例），这些信息也可以作为元数据写入。
+
+它可以简单地是只读元数据，例如Kafka的读取偏移量或摄取时间。但也可以向每个[Kafka ProducerRecord](https://cwiki.apache.org/confluence/display/KAFKA/A+Case+for+Kafka+Headers)添加或删除标头信息（例如，消息哈希或记录版本）。此外，用户可能只想读取和写入记录中包含数据但又有不同用途的部分（例如，按键压缩）。
+
+我们应该能够从所有这些位置读取和写入数据。
+
+Kafka是最复杂的源，因为它允许将数据存储在记录的多个不同位置。这些地方中的每个地方/可以被不同地序列化。此外，其中一些可能有不同的用途：
+
+- 它们都可以只是一个数据容器，
+- 用于分区的键（键上的哈希）， 
+- 用于压缩的键（如果主题是分区中具有相同键的压缩记录被合并）， 
+- 日志保留时间戳
+- 元数据头
+
+由于上述原因，大部分示例都将使用Kafka。
+
+格式也应该能够公开元数据，FLIP-132只是Debezium格式可能公开“ db_operation_time”的一个示例，该“ db_operation_time”不是架构本身的一部分。
+
+其他用例可能是将Avro版本或Avro模式公开为每条记录的元信息
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-107%3A+Handling+of+metadata+in+SQL+connectors
+
+## FLIP-108  GPU support in Flink
+
+https://issues.apache.org/jira/browse/FLINK-17044
+
+随着机器学习（或深度学习）的广泛进步，越来越多的企业开始将ML模型整合到许多产品中。支持ML场景是Flink的路线图目标之一。ML社区的人们广泛使用GPU作为加速器。有必要添加GPU支持。 
+
+当前，Flink仅支持在Mesos集成中请求GPU资源，而大多数用户和企业在Yarn / Kubernetes或独立模式下部署Flink。因此，我们建议在Flink中添加GPU支持。作为第一步，我们建议：
+
+- 使用户能够为每个任务执行器配置GPU内核，并将此类要求转发给外部资源管理器（用于Kubernetes / Yarn / Mesos设置）。
+- 向操作员提供可用GPU资源的信息。
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-108%3A+Add+GPU+support+in+Flink
+
+## FLIP-110 Support like in create table
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-110%3A+Support+LIKE+clause+in+CREATE+TABLE
+
+## FLIP-113 支持FLINK sql 的动态表配置
+
+Hint 动态表配置  结合 CatalogTable
+
+https://issues.apache.org/jira/browse/FLINK-17101
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-113%3A+Supports+Dynamic+Table+Options+for+Flink+SQL
+
+## FLIP-115 filesystem compaction 功能要看
+
+https://issues.apache.org/jira/browse/FLINK-14256
+
+文件系统是表/ sql世界中非常重要的连接器。
+
+- 批处理作业最重要的连接器。
+- 启动流和批处理。
+- 将接收器流式传输到FileSystem / Hive是数据仓库数据导入的一种非常常见的情况。
+
+但是现在，我们只有带csv的文件系统，它有很多缺点：
+
+- 不支持分区。
+- 插入两次将导致异常。
+- 不支持插入覆盖。
+- 旧的csv不是标准的csv。
+- 不支持批量故障转移。
+- 不支持流式传输一次写入。
+
+该FLIP旨在引入一个全面的文件系统连接器。
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-115%3A+Filesystem+connector+in+Table
+
+## FLIP-116 JobManager 统一内存配置
+
+ 该FLIP建议将作业管理器（JM）的内存模型和配置与 [FLIP-49中](https://cwiki.apache.org/confluence/display/FLINK/FLIP-49%3A+Unified+Memory+Configuration+for+TaskExecutors)最近引入的任务管理器（TM）的内存模型对齐。
+
+JM的内存模型不需要像TM那样广泛。 [FLIP-49](https://cwiki.apache.org/confluence/display/FLINK/FLIP-49%3A+Unified+Memory+Configuration+for+TaskExecutors)中的许多动机点在此处不适用。尽管如此，除了调整两个内存模型外，JM当前的内存设置还存在两个明显的问题：
+
+- 对于 *容器化环境*（Yarn / Mesos / Kubernetes），`jobmanager.heap.size`选项适用于所有*环境，*因为它不代表JM的*JVM堆*大小，而是代表Flink JVM进程消耗的*总进程内存*，包括*容器中断*。它用于设置在*容器化环境中*请求的JM容器内存大小。
+
+- *容器截断*的目的本身也可能造成混淆，主要用途是：
+
+- - Flink或用户代码相关性导致的*堆外内存*使用（在某些情况下，在作业启动期间运行用户代码）
+  - *JVM元空间*
+  - 其他 *JVM开销*
+
+- 无法合理地限制*JVM* *直接内存*分配，因此它不受JVM控制。因此，由于OOM，很难调试*堆外内存*泄漏和容器杀死。
+- *JVM Metaspace*大小相同，以暴露可能的类加载泄漏。
+
+https://jira.apache.org/jira/browse/FLINK-16614
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-116%3A+Unified+Memory+Configuration+for+Job+Managers
+
+
+
+## FLIP-119 Pipelined Region Schedule
+
+Flink的调度程序中目前存在多个缺点。在此FLIP中，我们要集中精力解决潜在的批处理作业死锁，并统一批处理作业和流作流水线区域调度
+
+在本节中，我们概述了如何通过管道区域调度计划批处理作业。然后，我们证明调度程序也将能够使用相同的原理来调度流作业。 
+
+批处理作业中的任务正在使用流水线进行相互通信并阻止数据交换。流水线区域定义为通过流水线数据交换连接的任务集。因此，流水线区域的输入和输出边缘阻塞了中间结果分区。
+
+流水线区域调度的基本规则是：
+
+1. 一起计划流水线连接的任务，即在计划中将一个区域视为一个整体。
+2. 仅在其消耗的所有结果分区均已就绪时才调度区域。这确保了开始的区域将能够完成，因此可以释放插槽以供其他区域使用。
+3. 必须避免不同流水线区域之间的插槽分配竞争。这样可以确保计划的区域始终能够获取启动工作所需的插槽（假设集群为每个区域都具有足够的资源）。
+
+这样，该策略保证了只要群集能够满足最大区域的资源需求，作业就可以成功运行。
+
+请注意，上述算法适用于流作业，因为流作业中的所有任务都通过流水线数据交换相互连接。如果流式作业采用随机播放，则所有任务都将落在相同的流水线区域中，并且流水线区域调度程序将同时琐碎地调度所有任务。对于不进行混洗的流作业，可能需要也可能不必应用特殊注意事项（请参阅[尴尬的并行流作业](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=148643906#FLIP119PipelinedRegionScheduling-EmbarrassinglyparallelStreamingJobs)）。业的不同代码路径。以下各节将简要概述此FLIP解决的缺点。
+
+
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-119+Pipelined+Region+Scheduling
+
+## FLIP-129 重构Descriptor API  IN Connector 
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-129%3A+Refactor+Descriptor+API+to+register+connectors+in+Table+API
+
+## FLIP-130 support python datastream api ??
+
+
+
+重复了？？
+
+https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=158866298
+
+## FLIP-131 Dataflow API / 弃用 DataSet API
+
+
+
+https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=158866741
+
+## FLIP-132 Temporal Table DDL and Temporal Table Join
+
+里面有个版本表的概念 要看一下
+
+
+
+时间表表示更改表上的（参数化）视图的概念，该视图在特定时间点返回表的内容。临时表包含一组版本化的表快照，它可以是跟踪更改的更改历史记录表（例如数据库更改日志），也可以是具体化更改的维表（例如数据库表）。 
+
+为了更改维表，以关联该表，Flink使用DDL定义了一个时态表，并通过查找外部系统的表来访问时态表数据。 对于更改历史记录表，要关联该表，Flink使用时态表函数来定义一个更改后的历史表的参数化视图，然后访问视图的数据，但是时态表函数只能通过Table API或YAML调用，这对于FLINK非常不便SQL用户。如果我们能够支持时态表DDL，则用户不再需要时态表功能，并且他们可以在SQL中轻松访问时态表。 
+
+Flink SQL在FLIP-95之后获得了解释变更日志的能力，变更日志是自然的时态表，其中包含原始数据库表的所有版本化视图。在changelog上支持时态表将帮助用户访问原始数据库表的特定版本，这将大大丰富Flink时态连接方案。
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-132+Temporal+Table+DDL+and+Temporal+Table+Join
+
+## FLIP-134
+
+我们建议引入一个名为**execution.runtime-mode**的新设置 ，它具有三个可能的值：
+
+- 批处理：选择新的批处理运行时模式。仅在所有源都受限制的情况下才有效。
+- 流：选择流运行时模式。这是DataStream API当前展现的执行行为，我们追溯将在此FLIP生效后将其称为流模式。
+- 自动：根据作业/程序中的源选择执行模式。如果所有源都受限，则选择BATCH，否则选择STREAMING。
+
+如[FLIP-131中所述](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=158866741)，我们旨在弃用DataSet API，而推荐使用DataStream API和Table API。用户应该能够使用DataStream API编写程序，该程序将在有界和无界输入数据上高效执行。为了理解我们的意思，我们必须详细说明一下。
+
+如果数据源将连续产生数据并且永不关闭，则将其称为无界数据。另一方面，有限源将仅读取有限数量的数据，最终将关闭。包含无限制源的Flink作业/程序将不受限制，而仅包含受限制源的作业将受到限制，最终将完成。 传统上，处理系统已针对有界执行或无界执行进行了优化，它们是批处理处理器或流处理器。原因是框架可以根据计算的性质使用不同的运行时算法和数据结构。流处理器针对连续/增量计算进行了优化，可以快速提供结果（低延迟），而批处理器针对快速处理整*批*数据进行了优化， 而由单个事件/记录引起的更新则不提供低延迟。Flink可以用于批处理和流处理，但是用户需要将DataSet API用于前者，并将DataStream API用于后一种。
+
+用户可以使用DataStream API编写有边界的程序，但是当前，运行时将不知道某个程序是有边界的，并且在“决定”程序的执行方式时不会利用此优势。这包括选择如何调度操作以及如何在操作之间对数据进行混洗的选择。
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-134%3A+Batch+execution+for+the+DataStream+API
+
+## FLIP-135
+
+Flink不再是纯粹的流引擎，而是随着时间的流逝而扩展以适应许多不同的场景：批处理，AI，事件驱动的应用程序等。近似任务本地恢复是实现这些多样化场景的尝试之一。并保持数据一致性，以快速恢复故障。更具体地说，如果任务失败，则只有失败的任务才会重新启动，而不会影响其余的工作。近似任务本地恢复与RestartPipelinedRegionFailoverStrategy相似， 但有两个主要区别：
+
+- 而不是重新启动连接的区域[[FLIP1：从任务失败中进行细粒度恢复\]](https://cwiki.apache.org/confluence/display/FLINK/FLIP-1+%3A+Fine+Grained+Recovery+from+Task+Failures)，近似任务本地恢复仅重新启动失败的任务。在设置流作业（与流水线结果分区类型相关的任务）的设置中，大多数情况下，连接区域等于整个作业。
+- RestartPipelinedRegionFailoverStrategy是一次，而近似的任务本地恢复会在源发生故障时预期数据丢失和少量数据重复。
+
+
+在可以容忍一定程度的数据丢失，但无法完全启动管道的情况下，近似任务本地恢复很有用。一个典型的用例是在线培训。在线培训作业通常具有所有任务连接的复杂性，因此使用RestartPipelinedRegionFailoverStrategy进行的单个任务失败可能会导致整个管道的完全重启。此外，初始化非常耗时，包括加载训练模型和启动Python子进程的过程等。初始化可能需要几分钟才能完成。
+
+https://issues.apache.org/jira/browse/FLINK-18112
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-135+Approximate+Task-Local+Recovery
+
+## FLIP-136
+
+在过去的一年中，Table API获得了许多新功能。它支持新型系统（FLIP-37），连接器支持变更日志（FLIP-95），我们具有定义明确的内部数据结构（FLIP-95），支持以交互方式进行结果检索（FLIP-84），并且很快新的TableDescriptors（FLIP-129）。
+
+但是，在引入这些新功能期间，尚未触及往返于DataStream API的接口，并且它们已经过时了。这些接口缺少Table API中可用的重要功能，但没有提供给DataStream API用户使用。DataStream API仍然是我们最重要的API，这就是为什么良好的互操作性至关重要的原因。
+
+该FLIP混合了不同主题，这些主题从以下方面改善了DataStream和Table API之间的互操作性：
+
+- DataStream↔表转换
+- 类型系统的翻译TypeInformation↔DataType
+- 模式定义（包括行时间，水印，主键）
+- 变更日志处理
+- DataStream API中的行处理
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-136%3A++Improve+interoperability+between+DataStream+and+Table+API
+
+## FLIP-137 Support Pandas UDAF in PyFlink
+
+
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-137%3A+Support+Pandas+UDAF+in+PyFlink
+
+## FLIP-138 声明式资源管理
+
+为了在有限的资源下更好地工作（例如Flink无法获得所有请求的资源），JobMaster不能期望其所有插槽请求都得到满足。当前，JobMasters分别询问每个插槽，如果无法获得，则使该作业失败。如果JobMaster首先声明运行作业所需的内容，则可以灵活地选择，而不是在询问ResourceManager之前确定所需的插槽组。根据ResourceManager实际分配的JobMaster，然后可以决定以调整后的并行度运行作业。这样，如果JobMaster获得的插槽数少于声明的插槽数，它便可以做出反应。
+
+https://issues.apache.org/jira/browse/FLINK-10404
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-138%3A+Declarative+Resource+management
+
+## FLIP-139
+
+python api
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-139%3A+General+Python+User-Defined+Aggregate+Function+Support+on+Table+API
+
+## FLIP-140 为有界流引入批处理
+
+舍弃 DataSet API
+
+DataStream API依赖于StateBackends来执行类似缩减/聚合的操作。在流场景中，没有一个时间点可以执行计算并向下游发出结果。计算以递增方式执行，我们需要随时掌握所有中间结果。如果状态不适合内存，则用户将被迫使用RocksDB，这将带来序列化记录，经常溢出到磁盘，昂贵的元数据簿记等方面的代价。这对于执行单点有界样式执行不一定有效及时之后结果不会改变。
+
+另一方面，DataSet API按键对传入的数据进行排序/分组，并仅对内存中的一个键执行聚合。因为我们只发出一次结果，所以我们不保留跨不同键的聚合的任何中间结果。
+
+
+
+DataStream API的当前行为等效于基于哈希的聚合算法，其中StateBackends充当HashTable。
+
+我们建议利用批处理执行模式的两个特征：
+
+- 我们没有checkpoint
+- 我们有 有界数据
+
+并将基于散列的聚合替换为基于排序的聚合。假设我们可以将累加器安装在内存中的单个键上，那么在这种情况下，我们可以不需要RocksDB。
+
+我们确实希望此更改对用户代码基本上是透明的。在每个键运算符之前，我们将引入一个排序步骤（可能会溢出，重用UnilateralSortMerger实现），以便按其键对输入进行排序/分组。这将使我们能够处理每个键组中的记录，这将使我们能够使用StateBackend的简化实现，该实现不是在键组中组织的，只能保存单个键的值。
+
+一次执行的单个键将用于批处理样式执行，这由[FLIP-134：绑定输入的数据流语义中 ](https://cwiki.apache.org/confluence/display/FLINK/FLIP-134%3A+Batch+execution+for+the+DataStream+API)描述的算法决定。
+
+此外，可以通过`**execution.sorted-shuffles.enabled**`配置选项禁用它。
+
+https://cwiki.apache.org/confluence/display/FLINK/FLIP-140%3A+Introduce+batch-style+execution+for+bounded+keyed+streams
+
 ## FLIP-141 
 
 引入了基于分数的方法来共享插槽内的托管内存。随着引入了也使用托管内存的python运算符，该方法需要扩展。该FLIP提出了一种设计，用于扩展python运算符和其他将来可能使用的托管内存使用案例的插槽内托管内存共享。
