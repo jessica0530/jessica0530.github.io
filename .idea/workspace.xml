@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54c19c49-efb7-4d0d-aa84-4fa4c50fcf2a" name="Default Changelist" comment="[Blog-47] move draft back">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jessica0530.github.io.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_drafts/2021-03-22-Scala-Code-Design-About-Links.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_drafts/2021-05-30-DBtoaster.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_drafts/2021-05-30-Snowflake.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_drafts/2020-10-23-TiDB.md" beforeDir="false" afterPath="$PROJECT_DIR$/_drafts/2020-10-23-TiDB.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2020-08-20-flink-table-blink.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2020-08-20-flink-table-blink.md" afterDir="false" />
+    <list default="true" id="54c19c49-efb7-4d0d-aa84-4fa4c50fcf2a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-03-Hudi-Metadata.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-05-Alluxio-介绍.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-07-Calcite-Parser.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-07-Cube-Kylin.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-07-Roaring Bitmap-HyperLogLog.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-07-Spark-Bucket.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-07-Spark-core.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-08-Spark-SQL-CodeGeneration.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-12-Spark-Memory-Model.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-12-Spark-Shuffle.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-14-Spark 优化.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-17-SparkAE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-21-Spark-Join.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-21-Spark-RPC.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-21-物化视图-TODO.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-03-22-Scala-Code-Design-About-Links.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-05-30-DBtoaster.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2021-05-30-Snowflake.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +61,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/_drafts" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/_posts" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -72,7 +81,7 @@
       <recent name="$PROJECT_DIR$/_wiki/java" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -171,13 +180,7 @@
       <workItem from="1649856082192" duration="984000" />
       <workItem from="1651125215243" duration="703000" />
       <workItem from="1652436638965" duration="784000" />
-    </task>
-    <task id="LOCAL-00074" summary="[Blog-33] add 数据架构">
-      <created>1604773127723</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1604773127723</updated>
+      <workItem from="1677633400811" duration="3676000" />
     </task>
     <task id="LOCAL-00075" summary="[Blog-33] add 数据湖">
       <created>1604952326623</created>
@@ -515,11 +518,18 @@
       <option name="project" value="LOCAL" />
       <updated>1621386711892</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="[Blog-47] move draft back">
+      <created>1677633518395</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1677633518395</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -586,12 +596,13 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[Blog-45] 修改流批一体 md" />
@@ -606,7 +617,6 @@
     <MESSAGE value="[Blog-45] add about me" />
     <MESSAGE value="[Blog-46] delete draft" />
     <MESSAGE value="[Blog-46] delete template" />
-    <MESSAGE value="[Blog-47] move draft back" />
     <MESSAGE value="[Blog-48] UPDATE FLIP" />
     <MESSAGE value="[Blog-48] move draft" />
     <MESSAGE value="[Blog-48] add flink flip" />
@@ -619,12 +629,34 @@
     <MESSAGE value="[Blog-54] add spark优化" />
     <MESSAGE value="[Blog-56] add spark" />
     <MESSAGE value="[Blog-56] scala" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Blog-56] scala" />
+    <MESSAGE value="[Blog-47] move draft back" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Blog-47] move draft back" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="443" y="142" key="#Project_Structure" timestamp="1677635789581">
+      <screen x="0" y="23" width="1403" height="877" />
+    </state>
+    <state x="443" y="142" key="#Project_Structure/0.23.1403.877@0.23.1403.877" timestamp="1677635789581" />
+    <state x="214" y="64" key="CommitChangelistDialog2" timestamp="1677633517739">
+      <screen x="0" y="23" width="1402" height="877" />
+    </state>
+    <state x="214" y="64" key="CommitChangelistDialog2/0.23.1402.877@0.23.1402.877" timestamp="1677633517739" />
+    <state x="201" y="154" key="SettingsEditor" timestamp="1677636067620">
+      <screen x="0" y="23" width="1403" height="877" />
+    </state>
+    <state x="201" y="154" key="SettingsEditor/0.23.1403.877@0.23.1403.877" timestamp="1677636067620" />
+    <state x="254" y="201" width="940" height="520" key="Vcs.Push.Dialog.v2" timestamp="1677637193469">
+      <screen x="0" y="23" width="1403" height="877" />
+    </state>
+    <state x="254" y="201" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1677634042730" />
+    <state x="254" y="201" width="940" height="520" key="Vcs.Push.Dialog.v2/0.23.1403.877@0.23.1403.877" timestamp="1677637193469" />
     <state x="464" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1677633401141">
       <screen x="0" y="23" width="1402" height="877" />
     </state>
     <state x="464" y="294" key="com.intellij.ide.util.TipDialog/0.23.1402.877@0.23.1402.877" timestamp="1677633401141" />
+    <state x="446" y="218" width="667" height="486" key="find.popup" timestamp="1677635617793">
+      <screen x="0" y="23" width="1403" height="877" />
+    </state>
+    <state x="446" y="218" width="667" height="486" key="find.popup/0.23.1403.877@0.23.1403.877" timestamp="1677635617793" />
   </component>
 </project>
