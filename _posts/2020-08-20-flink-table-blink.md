@@ -92,21 +92,20 @@ if (!isNull$2) {
 最后生成该节点的Function,供SingleProcessOperator调用
 
 ```java
-
+      
       public final class WatermarkGenerator$0
           extends org.apache.flink.table.runtime.generated.WatermarkGenerator {
-
+         
         
-
+         
         public WatermarkGenerator$0(Object[] references) throws Exception {
           
         }
-
+        
         @Override
         public void open(org.apache.flink.configuration.Configuration parameters) throws Exception {
           
         }
-
         @Override
         public Long currentWatermark(org.apache.flink.table.data.RowData row) throws Exception {
           
@@ -136,7 +135,7 @@ if (!isNull$2) {
             return result$3.getMillisecond();
           }
         }
-
+       
         @Override
         public void close() throws Exception {
           

@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="54c19c49-efb7-4d0d-aa84-4fa4c50fcf2a" name="Default Changelist" comment="[Blog-47] move draft back">
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jessica0530.github.io.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_drafts/2021-03-22-Scala-Code-Design-About-Links.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_drafts/2021-05-30-DBtoaster.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_drafts/2021-05-30-Snowflake.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_drafts/2020-10-23-TiDB.md" beforeDir="false" afterPath="$PROJECT_DIR$/_drafts/2020-10-23-TiDB.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2020-08-20-flink-table-blink.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2020-08-20-flink-table-blink.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$USER_HOME$/repo" />
+        <option name="userSettingsFile" value="$USER_HOME$/IdeaProjects/flink-sql-ddl-dml/tools/maven/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1gdOawzxvrzCjUMXDGPTEBvm6zJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/_drafts" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_drafts" />
+      <recent name="$PROJECT_DIR$/_posts" />
+      <recent name="$PROJECT_DIR$/images/posts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images/posts" />
+      <recent name="$PROJECT_DIR$/_drafts" />
+      <recent name="$PROJECT_DIR$/_posts" />
+      <recent name="$PROJECT_DIR$/_wiki/kafka" />
+      <recent name="$PROJECT_DIR$/_wiki/java" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54c19c49-efb7-4d0d-aa84-4fa4c50fcf2a" name="Default Changelist" comment="" />
+      <created>1598441069810</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598441069810</updated>
+      <workItem from="1598441071764" duration="1478000" />
+      <workItem from="1599579561040" duration="4693000" />
+      <workItem from="1599662725611" duration="6973000" />
+      <workItem from="1599840330273" duration="5769000" />
+      <workItem from="1599929505709" duration="2498000" />
+      <workItem from="1599982707749" duration="2677000" />
+      <workItem from="1599986955910" duration="637000" />
+      <workItem from="1600095140692" duration="2568000" />
+      <workItem from="1600157484707" duration="5480000" />
+      <workItem from="1600265500506" duration="2927000" />
+      <workItem from="1600280711630" duration="9725000" />
+      <workItem from="1600365152703" duration="3731000" />
+      <workItem from="1600485736497" duration="4974000" />
+      <workItem from="1600549728871" duration="4009000" />
+      <workItem from="1600667817863" duration="1711000" />
+      <workItem from="1600772026981" duration="11607000" />
+      <workItem from="1600931261600" duration="536000" />
+      <workItem from="1600957632248" duration="7870000" />
+      <workItem from="1600977617997" duration="903000" />
+      <workItem from="1601039673210" duration="25541000" />
+      <workItem from="1601318263621" duration="6110000" />
+      <workItem from="1603021169951" duration="2019000" />
+      <workItem from="1603023207005" duration="3880000" />
+      <workItem from="1603038861863" duration="985000" />
+      <workItem from="1603098596964" duration="8014000" />
+      <workItem from="1603127009581" duration="6159000" />
+      <workItem from="1603177414700" duration="6348000" />
+      <workItem from="1603293934042" duration="4087000" />
+      <workItem from="1603389135835" duration="3580000" />
+      <workItem from="1603470933947" duration="677000" />
+      <workItem from="1603564459008" duration="1928000" />
+      <workItem from="1603803468317" duration="3449000" />
+      <workItem from="1603870579147" duration="4175000" />
+      <workItem from="1603941308636" duration="2696000" />
+      <workItem from="1604137539524" duration="3000" />
+      <workItem from="1604167776648" duration="1418000" />
+      <workItem from="1604286784920" duration="14706000" />
+      <workItem from="1604658776034" duration="13442000" />
+      <workItem from="1604910609394" duration="8376000" />
+      <workItem from="1605014717704" duration="16528000" />
+      <workItem from="1605243214118" duration="8964000" />
+      <workItem from="1605432056639" duration="8441000" />
+      <workItem from="1605668543770" duration="2898000" />
+      <workItem from="1605752201259" duration="5289000" />
+      <workItem from="1605846897739" duration="19304000" />
+      <workItem from="1606112472951" duration="12554000" />
+      <workItem from="1606462187585" duration="2202000" />
+      <workItem from="1606465680373" duration="557000" />
+      <workItem from="1606566273771" duration="1517000" />
+      <workItem from="1606638198198" duration="5107000" />
+      <workItem from="1606719098982" duration="2407000" />
+      <workItem from="1606837576930" duration="599000" />
+      <workItem from="1606878418966" duration="9546000" />
+      <workItem from="1606964721178" duration="7185000" />
+      <workItem from="1607269817715" duration="5171000" />
+      <workItem from="1607415633058" duration="7048000" />
+      <workItem from="1608106335942" duration="1421000" />
+      <workItem from="1608707737737" duration="599000" />
+      <workItem from="1609433691746" duration="44000" />
+      <workItem from="1610260590316" duration="598000" />
+      <workItem from="1611409801819" duration="2052000" />
+      <workItem from="1612455356196" duration="1679000" />
+      <workItem from="1612718723844" duration="2679000" />
+      <workItem from="1612852285850" duration="3000" />
+      <workItem from="1613213309005" duration="3774000" />
+      <workItem from="1613272142334" duration="7314000" />
+      <workItem from="1614701525134" duration="3626000" />
+      <workItem from="1614878218541" duration="254000" />
+      <workItem from="1615059442854" duration="4054000" />
+      <workItem from="1615221536349" duration="854000" />
+      <workItem from="1615562939109" duration="1534000" />
+      <workItem from="1615610170177" duration="2813000" />
+      <workItem from="1615914800135" duration="814000" />
+      <workItem from="1616259063356" duration="2610000" />
+      <workItem from="1616300134525" duration="3576000" />
+      <workItem from="1621046391626" duration="16505000" />
+      <workItem from="1621919185750" duration="1896000" />
+      <workItem from="1622105144543" duration="8907000" />
+      <workItem from="1622613655577" duration="804000" />
+      <workItem from="1626056695436" duration="597000" />
+      <workItem from="1626058955065" duration="636000" />
+      <workItem from="1632723038655" duration="1528000" />
+      <workItem from="1632731541314" duration="671000" />
+      <workItem from="1649765210928" duration="15124000" />
+      <workItem from="1649824969700" duration="388000" />
+      <workItem from="1649856082192" duration="984000" />
+      <workItem from="1651125215243" duration="703000" />
+      <workItem from="1652436638965" duration="784000" />
+    </task>
+    <task id="LOCAL-00074" summary="[Blog-33] add 数据架构">
+      <created>1604773127723</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1604773127723</updated>
+    </task>
+    <task id="LOCAL-00075" summary="[Blog-33] add 数据湖">
+      <created>1604952326623</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1604952326623</updated>
+    </task>
+    <task id="LOCAL-00076" summary="[Blog-35] delete cname">
+      <created>1604952988886</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1604952988886</updated>
+    </task>
+    <task id="LOCAL-00077" summary="[Blog-36] 修复算子">
+      <created>1604953226902</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1604953226902</updated>
+    </task>
+    <task id="LOCAL-00078" summary="[Blog-37] fix format">
+      <created>1604953407279</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1604953407279</updated>
+    </task>
+    <task id="LOCAL-00079" summary="[Blog-37] fix format">
+      <created>1604953980305</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1604953980305</updated>
+    </task>
+    <task id="LOCAL-00080" summary="[Blog-35] add linux epoll">
+      <created>1605035746520</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1605035746520</updated>
+    </task>
+    <task id="LOCAL-00081" summary="[Blog-40] add link">
+      <created>1605037971603</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1605037971603</updated>
+    </task>
+    <task id="LOCAL-00082" summary="[Blog-35] add 实时数仓">
+      <created>1605078269870</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1605078269870</updated>
+    </task>
+    <task id="LOCAL-00083" summary="[Blog-40] add url">
+      <created>1605083055518</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1605083055518</updated>
+    </task>
+    <task id="LOCAL-00084" summary="[Blog-41] remove hive">
+      <created>1605083150523</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1605083150523</updated>
+    </task>
+    <task id="LOCAL-00085" summary="[Blog-44] remove">
+      <created>1605091326807</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1605091326807</updated>
+    </task>
+    <task id="LOCAL-00086" summary="[Blog-43] add 实时数仓">
+      <created>1605091440614</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1605091440614</updated>
+    </task>
+    <task id="LOCAL-00087" summary="[Blog-43] add 面试补充">
+      <created>1605243798989</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1605243798990</updated>
+    </task>
+    <task id="LOCAL-00088" summary="[Blog-44] add 面试补充">
+      <created>1605244920989</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1605244920989</updated>
+    </task>
+    <task id="LOCAL-00089" summary="[Blog-45] add state-ful">
+      <created>1605257768890</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1605257768890</updated>
+    </task>
+    <task id="LOCAL-00090" summary="[Blog-45] add 面试补充">
+      <created>1605546255476</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1605546255477</updated>
+    </task>
+    <task id="LOCAL-00091" summary="[Blog-45] add 面试补充">
+      <created>1605948526273</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1605948526274</updated>
+    </task>
+    <task id="LOCAL-00092" summary="[Blog-45] 移动面试补充">
+      <created>1605948727246</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1605948727246</updated>
+    </task>
+    <task id="LOCAL-00093" summary="[Blog-44] add 面试补充">
+      <created>1605949072205</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1605949072205</updated>
+    </task>
+    <task id="LOCAL-00094" summary="[Blog-45] add file">
+      <created>1606028168785</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1606028168785</updated>
+    </task>
+    <task id="LOCAL-00095" summary="[Blog-45] 修改流批一体 md">
+      <created>1606043533991</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1606043533991</updated>
+    </task>
+    <task id="LOCAL-00096" summary="[Blog-44] add 批流一体">
+      <created>1606113296402</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1606113296402</updated>
+    </task>
+    <task id="LOCAL-00097" summary="[Blog-45] add 流批一体">
+      <created>1606113944900</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1606113944900</updated>
+    </task>
+    <task id="LOCAL-00098" summary="[Blog-45] add 面试补充">
+      <created>1606837666752</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1606837666752</updated>
+    </task>
+    <task id="LOCAL-00099" summary="[Blog-44] add 面试补充">
+      <created>1606837815921</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1606837815921</updated>
+    </task>
+    <task id="LOCAL-00100" summary="[Blog-44] add 面试补充">
+      <created>1606837844095</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1606837844095</updated>
+    </task>
+    <task id="LOCAL-00101" summary="[Blog-45] add commit">
+      <created>1607184333112</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1607184333112</updated>
+    </task>
+    <task id="LOCAL-00102" summary="[Blog-45] add flink yarn k8s">
+      <created>1607184408250</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1607184408250</updated>
+    </task>
+    <task id="LOCAL-00103" summary="[Blog-45] add 类加载过程">
+      <created>1607415898405</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1607415898406</updated>
+    </task>
+    <task id="LOCAL-00104" summary="[Blog-45] add 面试补充">
+      <created>1607422971742</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1607422971742</updated>
+    </task>
+    <task id="LOCAL-00105" summary="[Blog-45] add 面试补充">
+      <created>1607432936022</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1607432936022</updated>
+    </task>
+    <task id="LOCAL-00106" summary="[Blog-45] add hudi">
+      <created>1611423180950</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1611423180951</updated>
+    </task>
+    <task id="LOCAL-00107" summary="[Blog-45] add about me">
+      <created>1612456399846</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1612456399846</updated>
+    </task>
+    <task id="LOCAL-00108" summary="[Blog-46] delete draft">
+      <created>1612718986721</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1612718986721</updated>
+    </task>
+    <task id="LOCAL-00109" summary="[Blog-46] delete template">
+      <created>1612720631419</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1612720631419</updated>
+    </task>
+    <task id="LOCAL-00110" summary="[Blog-47] move draft back">
+      <created>1612720749403</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1612720749403</updated>
+    </task>
+    <task id="LOCAL-00111" summary="[Blog-48] UPDATE FLIP">
+      <created>1613229541206</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1613229541207</updated>
+    </task>
+    <task id="LOCAL-00112" summary="[Blog-48] move draft">
+      <created>1613229940555</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1613229940555</updated>
+    </task>
+    <task id="LOCAL-00113" summary="[Blog-48] add flink flip">
+      <created>1613368258783</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1613368258784</updated>
+    </task>
+    <task id="LOCAL-00114" summary="[Blog-49] flink add 模块">
+      <created>1613566372753</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1613566372753</updated>
+    </task>
+    <task id="LOCAL-00115" summary="[Blog-48] add alluxio">
+      <created>1614878041835</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1614878041836</updated>
+    </task>
+    <task id="LOCAL-00116" summary="[Blog-50] Alluxio 调优5大技巧">
+      <created>1614878375261</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1614878375261</updated>
+    </task>
+    <task id="LOCAL-00117" summary="[Blog-51] add draft">
+      <created>1615068372363</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1615068372364</updated>
+    </task>
+    <task id="LOCAL-00118" summary="[Blog-53] add spark sql">
+      <created>1615225018659</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1615225018660</updated>
+    </task>
+    <task id="LOCAL-00119" summary="[Blog-54] move draft back">
+      <created>1615567014898</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1615567014899</updated>
+    </task>
+    <task id="LOCAL-00120" summary="[Blog-54] add spark优化">
+      <created>1615918149176</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1615918149176</updated>
+    </task>
+    <task id="LOCAL-00121" summary="[Blog-56] add spark">
+      <created>1616263822095</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1616263822096</updated>
+    </task>
+    <task id="LOCAL-00122" summary="[Blog-56] scala">
+      <created>1621386711892</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1621386711892</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="2">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/jessica/ideaproject-github/jessica0530.github.io/_posts" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[Blog-45] 修改流批一体 md" />
+    <MESSAGE value="[Blog-44] add 批流一体" />
+    <MESSAGE value="[Blog-45] add 流批一体" />
+    <MESSAGE value="[Blog-44] add 面试补充" />
+    <MESSAGE value="[Blog-45] add commit" />
+    <MESSAGE value="[Blog-45] add flink yarn k8s" />
+    <MESSAGE value="[Blog-45] add 类加载过程" />
+    <MESSAGE value="[Blog-45] add 面试补充" />
+    <MESSAGE value="[Blog-45] add hudi" />
+    <MESSAGE value="[Blog-45] add about me" />
+    <MESSAGE value="[Blog-46] delete draft" />
+    <MESSAGE value="[Blog-46] delete template" />
+    <MESSAGE value="[Blog-47] move draft back" />
+    <MESSAGE value="[Blog-48] UPDATE FLIP" />
+    <MESSAGE value="[Blog-48] move draft" />
+    <MESSAGE value="[Blog-48] add flink flip" />
+    <MESSAGE value="[Blog-49] flink add 模块" />
+    <MESSAGE value="[Blog-48] add alluxio" />
+    <MESSAGE value="[Blog-50] Alluxio 调优5大技巧" />
+    <MESSAGE value="[Blog-51] add draft" />
+    <MESSAGE value="[Blog-53] add spark sql" />
+    <MESSAGE value="[Blog-54] move draft back" />
+    <MESSAGE value="[Blog-54] add spark优化" />
+    <MESSAGE value="[Blog-56] add spark" />
+    <MESSAGE value="[Blog-56] scala" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Blog-56] scala" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="464" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1677633401141">
+      <screen x="0" y="23" width="1402" height="877" />
+    </state>
+    <state x="464" y="294" key="com.intellij.ide.util.TipDialog/0.23.1402.877@0.23.1402.877" timestamp="1677633401141" />
+  </component>
+</project>
