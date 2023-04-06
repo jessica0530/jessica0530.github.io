@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54c19c49-efb7-4d0d-aa84-4fa4c50fcf2a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_drafts/2023-04-06-数据治理.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/2023-03-23-SQL语法.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_wiki/htap/p3411-chen-翻译.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_wiki/htap/p3411-chen.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2023-04-06-ByteHTAP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2023-04-06-数据治理.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2023-03-08-数仓建模理论.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2023-03-08-数仓建模理论.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_posts/2023-03-10-hologres-基础介绍.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2023-03-10-hologres-基础介绍.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/_drafts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/_posts" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -63,8 +60,8 @@
       <recent name="$PROJECT_DIR$/_wiki/kafka" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/_drafts" />
       <recent name="$PROJECT_DIR$/_posts" />
+      <recent name="$PROJECT_DIR$/_drafts" />
       <recent name="$PROJECT_DIR$/images/posts" />
     </key>
   </component>
@@ -169,14 +166,7 @@
       <workItem from="1652436638965" duration="784000" />
       <workItem from="1677633400811" duration="19611000" />
       <workItem from="1678266163936" duration="25637000" />
-      <workItem from="1680749568981" duration="4579000" />
-    </task>
-    <task id="LOCAL-00084" summary="[Blog-41] remove hive">
-      <created>1605083150523</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1605083150523</updated>
+      <workItem from="1680749568981" duration="7149000" />
     </task>
     <task id="LOCAL-00085" summary="[Blog-44] remove">
       <created>1605091326807</created>
@@ -514,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678690731974</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="[Blog-56] add sql 和数仓理论">
+      <created>1680758697463</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1680758697463</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +591,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Blog-45] add hudi" />
     <MESSAGE value="[Blog-45] add about me" />
     <MESSAGE value="[Blog-46] delete draft" />
     <MESSAGE value="[Blog-46] delete template" />
@@ -619,15 +615,16 @@
     <MESSAGE value="[Blog-53] move empty md" />
     <MESSAGE value="[Blog-54] add hologres table store" />
     <MESSAGE value="[Blog-55] edit hologres 基础介绍" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Blog-55] edit hologres 基础介绍" />
+    <MESSAGE value="[Blog-56] add sql 和数仓理论" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Blog-56] add sql 和数仓理论" />
   </component>
   <component name="WindowStateProjectService">
     <state x="443" y="142" key="#Project_Structure" timestamp="1677635789581">
       <screen x="0" y="23" width="1403" height="877" />
     </state>
     <state x="443" y="142" key="#Project_Structure/0.23.1403.877@0.23.1403.877" timestamp="1677635789581" />
-    <state x="215" y="64" key="CommitChangelistDialog2" timestamp="1678690731806">
-      <screen x="0" y="23" width="1414" height="877" />
+    <state x="215" y="64" key="CommitChangelistDialog2" timestamp="1680758697314">
+      <screen x="0" y="23" width="1416" height="877" />
     </state>
     <state x="214" y="64" key="CommitChangelistDialog2/0.23.1402.877@0.23.1402.877" timestamp="1677633517739" />
     <state x="214" y="64" key="CommitChangelistDialog2/0.23.1403.877@0.23.1403.877" timestamp="1677638093410" />
@@ -636,6 +633,7 @@
     <state x="215" y="64" key="CommitChangelistDialog2/0.23.1412.877@0.23.1412.877" timestamp="1677804809631" />
     <state x="215" y="64" key="CommitChangelistDialog2/0.23.1413.877@0.23.1413.877" timestamp="1678256914565" />
     <state x="215" y="64" key="CommitChangelistDialog2/0.23.1414.877@0.23.1414.877" timestamp="1678690731806" />
+    <state x="215" y="64" key="CommitChangelistDialog2/0.23.1416.877@0.23.1416.877" timestamp="1680758697314" />
     <state x="88" y="100" key="DiffContextDialog" timestamp="1677987659742">
       <screen x="0" y="23" width="1411" height="877" />
     </state>
@@ -653,8 +651,8 @@
       <screen x="0" y="23" width="1403" height="877" />
     </state>
     <state x="201" y="154" key="SettingsEditor/0.23.1403.877@0.23.1403.877" timestamp="1677637391465" />
-    <state x="256" y="201" width="940" height="520" key="Vcs.Push.Dialog.v2" timestamp="1678690733735">
-      <screen x="0" y="23" width="1414" height="877" />
+    <state x="256" y="201" width="940" height="520" key="Vcs.Push.Dialog.v2" timestamp="1680758700573">
+      <screen x="0" y="23" width="1416" height="877" />
     </state>
     <state x="254" y="201" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1677634042730" />
     <state x="254" y="201" width="940" height="520" key="Vcs.Push.Dialog.v2/0.23.1403.877@0.23.1403.877" timestamp="1677640302926" />
@@ -663,6 +661,7 @@
     <state x="255" y="201" key="Vcs.Push.Dialog.v2/0.23.1412.877@0.23.1412.877" timestamp="1677804811856" />
     <state x="256" y="201" key="Vcs.Push.Dialog.v2/0.23.1413.877@0.23.1413.877" timestamp="1678256959139" />
     <state x="256" y="201" key="Vcs.Push.Dialog.v2/0.23.1414.877@0.23.1414.877" timestamp="1678690733735" />
+    <state x="256" y="201" key="Vcs.Push.Dialog.v2/0.23.1416.877@0.23.1416.877" timestamp="1680758700573" />
     <state x="464" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1677633401141">
       <screen x="0" y="23" width="1402" height="877" />
     </state>
