@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54c19c49-efb7-4d0d-aa84-4fa4c50fcf2a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2023-04-06-ByteHTAP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/2023-04-06-数据治理.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2023-04-18-OneDate理论.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2023-03-10-hologres-基础介绍.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2023-03-10-hologres-基础介绍.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +50,11 @@
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_posts" />
+      <recent name="$PROJECT_DIR$/_drafts" />
+      <recent name="$PROJECT_DIR$/images/posts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_wiki/htap" />
       <recent name="$PROJECT_DIR$/images/posts" />
@@ -59,13 +62,8 @@
       <recent name="$PROJECT_DIR$/_posts" />
       <recent name="$PROJECT_DIR$/_wiki/kafka" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/_posts" />
-      <recent name="$PROJECT_DIR$/_drafts" />
-      <recent name="$PROJECT_DIR$/images/posts" />
-    </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -166,14 +164,12 @@
       <workItem from="1652436638965" duration="784000" />
       <workItem from="1677633400811" duration="19611000" />
       <workItem from="1678266163936" duration="25637000" />
-      <workItem from="1680749568981" duration="7149000" />
-    </task>
-    <task id="LOCAL-00085" summary="[Blog-44] remove">
-      <created>1605091326807</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1605091326807</updated>
+      <workItem from="1680749568981" duration="7785000" />
+      <workItem from="1681029624965" duration="595000" />
+      <workItem from="1681264659374" duration="1775000" />
+      <workItem from="1682729836266" duration="598000" />
+      <workItem from="1685789222800" duration="879000" />
+      <workItem from="1692789300059" duration="1788000" />
     </task>
     <task id="LOCAL-00086" summary="[Blog-43] add 实时数仓">
       <created>1605091440614</created>
@@ -511,11 +507,18 @@
       <option name="project" value="LOCAL" />
       <updated>1680758697463</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="[Blog-57] add sql 和数仓理论">
+      <created>1680776416517</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1680776416517</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -582,16 +585,14 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Blog-45] add about me" />
     <MESSAGE value="[Blog-46] delete draft" />
     <MESSAGE value="[Blog-46] delete template" />
     <MESSAGE value="[Blog-48] UPDATE FLIP" />
@@ -616,80 +617,17 @@
     <MESSAGE value="[Blog-54] add hologres table store" />
     <MESSAGE value="[Blog-55] edit hologres 基础介绍" />
     <MESSAGE value="[Blog-56] add sql 和数仓理论" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Blog-56] add sql 和数仓理论" />
+    <MESSAGE value="[Blog-57] add sql 和数仓理论" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Blog-57] add sql 和数仓理论" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="443" y="142" key="#Project_Structure" timestamp="1677635789581">
-      <screen x="0" y="23" width="1403" height="877" />
+    <state x="263" y="169" key="Vcs.Push.Dialog.v2" timestamp="1703487812107">
+      <screen x="0" y="23" width="1406" height="877" />
     </state>
-    <state x="443" y="142" key="#Project_Structure/0.23.1403.877@0.23.1403.877" timestamp="1677635789581" />
-    <state x="215" y="64" key="CommitChangelistDialog2" timestamp="1680758697314">
-      <screen x="0" y="23" width="1416" height="877" />
+    <state x="263" y="169" key="Vcs.Push.Dialog.v2/0.23.1406.877@0.23.1406.877" timestamp="1703487812107" />
+    <state x="132" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1703487761945">
+      <screen x="0" y="23" width="1406" height="877" />
     </state>
-    <state x="214" y="64" key="CommitChangelistDialog2/0.23.1402.877@0.23.1402.877" timestamp="1677633517739" />
-    <state x="214" y="64" key="CommitChangelistDialog2/0.23.1403.877@0.23.1403.877" timestamp="1677638093410" />
-    <state x="215" y="64" key="CommitChangelistDialog2/0.23.1410.877@0.23.1410.877" timestamp="1678005774186" />
-    <state x="215" y="64" key="CommitChangelistDialog2/0.23.1411.877@0.23.1411.877" timestamp="1677987684584" />
-    <state x="215" y="64" key="CommitChangelistDialog2/0.23.1412.877@0.23.1412.877" timestamp="1677804809631" />
-    <state x="215" y="64" key="CommitChangelistDialog2/0.23.1413.877@0.23.1413.877" timestamp="1678256914565" />
-    <state x="215" y="64" key="CommitChangelistDialog2/0.23.1414.877@0.23.1414.877" timestamp="1678690731806" />
-    <state x="215" y="64" key="CommitChangelistDialog2/0.23.1416.877@0.23.1416.877" timestamp="1680758697314" />
-    <state x="88" y="100" key="DiffContextDialog" timestamp="1677987659742">
-      <screen x="0" y="23" width="1411" height="877" />
-    </state>
-    <state x="88" y="100" key="DiffContextDialog/0.23.1411.877@0.23.1411.877" timestamp="1677987659742" />
-    <state x="88" y="100" key="DiffContextDialog/0.23.1412.877@0.23.1412.877" timestamp="1677804803588" />
-    <state x="133" y="99" key="MergeDialog" timestamp="1677938996944">
-      <screen x="0" y="23" width="1410" height="877" />
-    </state>
-    <state x="133" y="99" key="MergeDialog/0.23.1410.877@0.23.1410.877" timestamp="1677938996944" />
-    <state x="410" y="183" key="MultipleFileMergeDialog" timestamp="1677938999476">
-      <screen x="0" y="23" width="1410" height="877" />
-    </state>
-    <state x="410" y="183" key="MultipleFileMergeDialog/0.23.1410.877@0.23.1410.877" timestamp="1677938999476" />
-    <state x="201" y="154" key="SettingsEditor" timestamp="1677637391465">
-      <screen x="0" y="23" width="1403" height="877" />
-    </state>
-    <state x="201" y="154" key="SettingsEditor/0.23.1403.877@0.23.1403.877" timestamp="1677637391465" />
-    <state x="256" y="201" width="940" height="520" key="Vcs.Push.Dialog.v2" timestamp="1680758700573">
-      <screen x="0" y="23" width="1416" height="877" />
-    </state>
-    <state x="254" y="201" key="Vcs.Push.Dialog.v2/0.23.1402.877@0.23.1402.877" timestamp="1677634042730" />
-    <state x="254" y="201" width="940" height="520" key="Vcs.Push.Dialog.v2/0.23.1403.877@0.23.1403.877" timestamp="1677640302926" />
-    <state x="255" y="201" key="Vcs.Push.Dialog.v2/0.23.1410.877@0.23.1410.877" timestamp="1678005789850" />
-    <state x="255" y="201" key="Vcs.Push.Dialog.v2/0.23.1411.877@0.23.1411.877" timestamp="1677987686714" />
-    <state x="255" y="201" key="Vcs.Push.Dialog.v2/0.23.1412.877@0.23.1412.877" timestamp="1677804811856" />
-    <state x="256" y="201" key="Vcs.Push.Dialog.v2/0.23.1413.877@0.23.1413.877" timestamp="1678256959139" />
-    <state x="256" y="201" key="Vcs.Push.Dialog.v2/0.23.1414.877@0.23.1414.877" timestamp="1678690733735" />
-    <state x="256" y="201" key="Vcs.Push.Dialog.v2/0.23.1416.877@0.23.1416.877" timestamp="1680758700573" />
-    <state x="464" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1677633401141">
-      <screen x="0" y="23" width="1402" height="877" />
-    </state>
-    <state x="464" y="294" key="com.intellij.ide.util.TipDialog/0.23.1402.877@0.23.1402.877" timestamp="1677633401141" />
-    <state x="0" y="83" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1680756748960">
-      <screen x="0" y="23" width="1416" height="877" />
-    </state>
-    <state x="0" y="83" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1416.877@0.23.1416.877" timestamp="1680756748960" />
-    <state x="270" y="277" width="912" height="486" key="find.popup" timestamp="1677985979222">
-      <screen x="0" y="23" width="1410" height="877" />
-    </state>
-    <state x="269" y="277" width="667" height="486" key="find.popup/0.23.1403.877@0.23.1403.877" timestamp="1677643058862" />
-    <state x="270" y="277" width="912" height="486" key="find.popup/0.23.1410.877@0.23.1410.877" timestamp="1677985979222" />
-    <state x="352" y="259" key="git4idea.merge.GitPullDialog" timestamp="1677938942906">
-      <screen x="0" y="23" width="1410" height="877" />
-    </state>
-    <state x="352" y="259" key="git4idea.merge.GitPullDialog/0.23.1410.877@0.23.1410.877" timestamp="1677938942906" />
-    <state x="438" y="368" key="git4idea.ui.GitStashDialog" timestamp="1677938934097">
-      <screen x="0" y="23" width="1410" height="877" />
-    </state>
-    <state x="438" y="368" key="git4idea.ui.GitStashDialog/0.23.1410.877@0.23.1410.877" timestamp="1677938934097" />
-    <state x="438" y="315" key="git4idea.ui.GitUnstashDialog" timestamp="1677938999552">
-      <screen x="0" y="23" width="1410" height="877" />
-    </state>
-    <state x="438" y="315" key="git4idea.ui.GitUnstashDialog/0.23.1410.877@0.23.1410.877" timestamp="1677938999552" />
-    <state x="-10" y="224" width="670" height="676" key="search.everywhere.popup" timestamp="1678347206082">
-      <screen x="0" y="23" width="1410" height="877" />
-    </state>
-    <state x="-10" y="224" width="670" height="676" key="search.everywhere.popup/0.23.1410.877@0.23.1410.877" timestamp="1678347206082" />
+    <state x="132" y="294" key="com.intellij.ide.util.TipDialog/0.23.1406.877@0.23.1406.877" timestamp="1703487761945" />
   </component>
 </project>
