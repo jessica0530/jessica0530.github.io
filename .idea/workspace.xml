@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54c19c49-efb7-4d0d-aa84-4fa4c50fcf2a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/2023-04-18-OneDate理论.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2023-04-06-数据治理.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2023-04-06-数据治理.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2023-04-18-OneDate理论.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2023-04-18-OneDate理论.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +63,19 @@
       <recent name="$PROJECT_DIR$/_posts" />
       <recent name="$PROJECT_DIR$/_wiki/kafka" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -170,13 +184,8 @@
       <workItem from="1682729836266" duration="598000" />
       <workItem from="1685789222800" duration="879000" />
       <workItem from="1692789300059" duration="1788000" />
-    </task>
-    <task id="LOCAL-00086" summary="[Blog-43] add 实时数仓">
-      <created>1605091440614</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1605091440614</updated>
+      <workItem from="1703487732427" duration="535000" />
+      <workItem from="1704274562162" duration="8752000" />
     </task>
     <task id="LOCAL-00087" summary="[Blog-43] add 面试补充">
       <created>1605243798989</created>
@@ -514,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680776416517</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="[Blog-58] add sql 和数仓理论">
+      <created>1703487829519</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1703487829519</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +609,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Blog-46] delete draft" />
     <MESSAGE value="[Blog-46] delete template" />
     <MESSAGE value="[Blog-48] UPDATE FLIP" />
     <MESSAGE value="[Blog-48] move draft" />
@@ -618,13 +633,18 @@
     <MESSAGE value="[Blog-55] edit hologres 基础介绍" />
     <MESSAGE value="[Blog-56] add sql 和数仓理论" />
     <MESSAGE value="[Blog-57] add sql 和数仓理论" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Blog-57] add sql 和数仓理论" />
+    <MESSAGE value="[Blog-58] add sql 和数仓理论" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Blog-58] add sql 和数仓理论" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="263" y="169" key="Vcs.Push.Dialog.v2" timestamp="1703487812107">
+    <state x="226" y="32" key="CommitChangelistDialog2" timestamp="1703487829219">
       <screen x="0" y="23" width="1406" height="877" />
     </state>
-    <state x="263" y="169" key="Vcs.Push.Dialog.v2/0.23.1406.877@0.23.1406.877" timestamp="1703487812107" />
+    <state x="226" y="32" key="CommitChangelistDialog2/0.23.1406.877@0.23.1406.877" timestamp="1703487829219" />
+    <state x="263" y="169" key="Vcs.Push.Dialog.v2" timestamp="1703487844458">
+      <screen x="0" y="23" width="1406" height="877" />
+    </state>
+    <state x="263" y="169" key="Vcs.Push.Dialog.v2/0.23.1406.877@0.23.1406.877" timestamp="1703487844458" />
     <state x="132" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1703487761945">
       <screen x="0" y="23" width="1406" height="877" />
     </state>
