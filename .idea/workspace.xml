@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54c19c49-efb7-4d0d-aa84-4fa4c50fcf2a" name="Default Changelist" comment="">
+    <list default="true" id="54c19c49-efb7-4d0d-aa84-4fa4c50fcf2a" name="Default Changelist" comment="[Blog-61] update title">
+      <change afterPath="$PROJECT_DIR$/_drafts/2024-01-08-云平台分析.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_drafts/2024-01-10-Python&amp;&amp;Scala基础.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/2024-01-10-高阶SQL.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2023-04-18-OneDate理论.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2023-04-18-OneData理论.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2023-04-06-ByteHTAP.md" beforeDir="false" afterPath="$PROJECT_DIR$/_drafts/2023-04-06-ByteHTAP.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,21 +60,23 @@
       <recent name="$PROJECT_DIR$/images/posts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/_drafts" />
       <recent name="$PROJECT_DIR$/_wiki/htap" />
       <recent name="$PROJECT_DIR$/images/posts" />
-      <recent name="$PROJECT_DIR$/_drafts" />
       <recent name="$PROJECT_DIR$/_posts" />
       <recent name="$PROJECT_DIR$/_wiki/kafka" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,14 +190,8 @@
       <workItem from="1685789222800" duration="879000" />
       <workItem from="1692789300059" duration="1788000" />
       <workItem from="1703487732427" duration="535000" />
-      <workItem from="1704274562162" duration="9566000" />
-    </task>
-    <task id="LOCAL-00088" summary="[Blog-44] add 面试补充">
-      <created>1605244920989</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1605244920989</updated>
+      <workItem from="1704274562162" duration="19346000" />
+      <workItem from="1705181634624" duration="5970000" />
     </task>
     <task id="LOCAL-00089" summary="[Blog-45] add state-ful">
       <created>1605257768890</created>
@@ -530,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704706404017</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="[Blog-60] update title">
+      <created>1704707228761</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1704707228761</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,7 +615,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[Blog-48] UPDATE FLIP" />
     <MESSAGE value="[Blog-48] move draft" />
     <MESSAGE value="[Blog-48] add flink flip" />
     <MESSAGE value="[Blog-49] flink add 模块" />
@@ -634,6 +639,7 @@
     <MESSAGE value="[Blog-57] add sql 和数仓理论" />
     <MESSAGE value="[Blog-58] add sql 和数仓理论" />
     <MESSAGE value="[Blog-59] update onedata &amp;&amp; 数据治理" />
-    <option name="LAST_COMMIT_MESSAGE" value="[Blog-59] update onedata &amp;&amp; 数据治理" />
+    <MESSAGE value="[Blog-60] update title" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Blog-60] update title" />
   </component>
 </project>
